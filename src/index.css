@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 html {
-    font-size: 14px;
+    font-size: 10px;
+}
+
+/* hack: for lucide icons*/
+svg {
+    display: inline;
 }
