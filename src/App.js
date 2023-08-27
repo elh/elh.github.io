@@ -30,7 +30,15 @@ function Projects({ projects }) {
           <div className="mt-4">{group.name.toUpperCase()}</div>
           {group.repos && group.repos.map((repo, j) =>
             <div>
-              <span className="font-bold">❧ <a href={`https://github.com/elh/`+repo.repo} className="link link-hover">{repo.repo} </a></span>
+              { repo.repos
+                ? <span>
+                  <span className="font-bold">❧ </span>
+                  {repo.repos.map((repo, k) =>
+                    <span className="font-bold"><a href={`https://github.com/elh/`+repo} className="link link-hover">{repo}{k > 0 ? " ": ", "}</a></span>
+                  )}
+                  </span>
+                : <span className="font-bold">❧ <a href={`https://github.com/elh/`+repo.repo} className="link link-hover">{repo.repo} </a></span>
+              }
               { repo.homepage &&
                 <a href={repo.homepage} className="link link-hover">
                   (<ExternalLink size={12} strokeWidth={2.0} /> live)
@@ -56,7 +64,7 @@ function App() {
   return (
     <div>
       <div className="flex justify-center items-center pt-[4rem]">
-        <div className="w-[40rem]">
+        <div className="w-[44rem]">
           <header className="flex justify-between items-center">
             <a href={process.env.PUBLIC_URL} className="text-2xl font-extrabold link link-hover">{"Eugene L Huang".toUpperCase()}</a>
             <div className="flex space-x-2">

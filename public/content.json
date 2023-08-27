@@ -1,7 +1,7 @@
 {
-  "about_me": "I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I worked on a new structured data product at Box and studied EECS at UC Berkeley.",
+  "about_me": "I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley.",
   "projects": {
-    "intro": "Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are fully functional MVPs, documented, and easily runnable. Check them out!\n",
+    "intro": "Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out! :)\n",
     "groups": [
       {
         "name": "DB",
@@ -11,20 +11,22 @@
             "desc": "REST API generator for XTDB w/ schema-on-write"
           },
           {
-            "repo": "bitempura",
-            "desc": "Toy, in-memory, bitemporal key-value db",
-            "homepage": "https://elh.github.io/bitempura-viz/#/bitempura-viz/interactive"
-          },
-          {
-            "repo": "bitempura-viz",
-            "desc": "Bitemporal 2D valid + tx time visualizer",
+            "repos": [
+              "bitempura",
+              "bitempura-viz"
+            ],
+            "desc": "Toy bitemporal key-value db + visualizer",
             "homepage": "https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample"
           }
         ]
       },
       {
-        "name": "Logic Programming",
+        "name": "Logic Programming, Formal Specification",
         "repos": [
+          {
+            "repo": "petri-tlaplus",
+            "desc": "TLA+ specifications for Petri nets"
+          },
           {
             "repo": "whodunit",
             "desc": "Logic puzzle generator using core.logic"
@@ -32,15 +34,6 @@
           {
             "repo": "quarry",
             "desc": "Tiny expert system demo using SWI-Prolog"
-          }
-        ]
-      },
-      {
-        "name": "Formal Specification",
-        "repos": [
-          {
-            "repo": "petri-tlaplus",
-            "desc": "TLA+ specifications for Petri nets"
           }
         ]
       },
@@ -102,7 +95,7 @@
         ]
       },
       {
-        "name": "Miscellaneous",
+        "name": "Misc.",
         "repos": [
           {
             "repo": "gh-organizer",

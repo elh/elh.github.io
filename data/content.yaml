@@ -1,30 +1,25 @@
 ---
 # about_me: I'm a software engineer at Forward working on radically rebuilding health care in the world of software and hardware. Prior to that, I worked on transforming files into structured data for apps and automation at Box. Prior to that, studied EECS at UC Berkeley.
-about_me: I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I worked on a new structured data product at Box and studied EECS at UC Berkeley.
+about_me: I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley.
 projects:
   intro: |
-    Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are fully functional MVPs, documented, and easily runnable. Check them out!
+    Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out! :)
   groups:
   - name: DB
     repos:
     - repo: dignum
       desc: REST API generator for XTDB w/ schema-on-write
-    - repo: bitempura
-      desc: Toy, in-memory, bitemporal key-value db
-      homepage: https://elh.github.io/bitempura-viz/#/bitempura-viz/interactive
-    - repo: bitempura-viz
-      desc: Bitemporal 2D valid + tx time visualizer
+    - repos: [bitempura, bitempura-viz]
+      desc: Toy bitemporal key-value db + visualizer
       homepage: https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample
-  - name: Logic Programming
+  - name: Logic Programming, Formal Specification
     repos:
+    - repo: petri-tlaplus
+      desc: TLA+ specifications for Petri nets
     - repo: whodunit
       desc: Logic puzzle generator using core.logic
     - repo: quarry
       desc: Tiny expert system demo using SWI-Prolog
-  - name: Formal Specification
-    repos:
-    - repo: petri-tlaplus
-      desc: TLA+ specifications for Petri nets
   - name: LLM
     repos:
     - repo: fluteur
@@ -53,7 +48,7 @@ projects:
       desc: Performant graph generator for Feynman diagrams*
     - repo: advent-2019
       desc: My short-lived 2019 Advent of Code in Clojure
-  - name: Miscellaneous
+  - name: Misc.
     repos:
     - repo: gh-organizer
       desc: Github org and user timeline visualizer
