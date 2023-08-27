@@ -1,7 +1,7 @@
 {
   "groups": [
     {
-      "name": "DBs",
+      "name": "DB",
       "repos": [
         {
           "repo": "dignum",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "name": "LLMs",
+      "name": "LLM",
       "repos": [
         {
           "repo": "fluteur",

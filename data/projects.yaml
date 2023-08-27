@@ -1,6 +1,6 @@
 ---
 groups:
-- name: DBs
+- name: DB
   repos:
   - repo: dignum
     desc: REST API generator for XTDB w/ schema-on-write
@@ -20,7 +20,7 @@ groups:
   repos:
   - repo: petri-tlaplus
     desc: TLA+ specifications for Petri nets
-- name: LLMs
+- name: LLM
   repos:
   - repo: fluteur
     desc: A GPT-powered self-updating website hosted entirely in Github
