@@ -1,0 +1,202 @@
+{
+  "0-0-0": {
+    "name": "0-0-0",
+    "description": "\u265f\ufe0f Play chess against GPT. Have GPT explain chess positions.",
+    "homepage": "https://elh.github.io/0-0-0/",
+    "language": "JavaScript",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "advent-2019": {
+    "name": "advent-2019",
+    "description": "\ud83c\udf84 My short-lived 2019 Advent of Code run in Clojure",
+    "homepage": "",
+    "language": "Clojure",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "advent-2022": {
+    "name": "advent-2022",
+    "description": "\u2b50\ufe0f My 50-star 2022 Advent of Code in Clojure",
+    "homepage": "https://adventofcode.com/2022",
+    "language": "Clojure",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "awesome-advent-of-code": {
+    "name": "awesome-advent-of-code",
+    "description": "A collection of awesome resources related to the yearly Advent of Code challenge.",
+    "homepage": "",
+    "language": null,
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "bettor": {
+    "name": "bettor",
+    "description": "\ud83c\udfb2 Run your own parimutuel betting Discord bot. Inspired by Twitch channel point predictions",
+    "homepage": "",
+    "language": "Go",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "bitempura": {
+    "name": "bitempura",
+    "description": "\u23f3 Toy, in-memory, bitemporal key-value database",
+    "homepage": "https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample",
+    "language": "Go",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "bitempura-viz": {
+    "name": "bitempura-viz",
+    "description": "\ud83d\udd2e Visualize the 2D valid time and tx time history of a bitemporal database",
+    "homepage": "https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample",
+    "language": "JavaScript",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "compress": {
+    "name": "compress",
+    "description": "Optimized Go Compression Packages",
+    "homepage": "",
+    "language": null,
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "detective": {
+    "name": "detective",
+    "description": "\ud83d\udd75\ufe0f Create and play text-based games in the style of \"Her Story\"",
+    "homepage": "",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "dignum": {
+    "name": "dignum",
+    "description": "\u267b\ufe0f REST API generator for XTDB records w/ schema-on-write",
+    "homepage": "",
+    "language": "Clojure",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "elh": {
+    "name": "elh",
+    "description": "\u2766",
+    "homepage": "",
+    "language": null,
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "evals": {
+    "name": "evals",
+    "description": "Evals is a framework for evaluating OpenAI models and an open-source registry of benchmarks.",
+    "homepage": "",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "feynman-781": {
+    "name": "feynman-781",
+    "description": "\u269b\ufe0f Simple, performant graph generator for Feynman diagrams*",
+    "homepage": "",
+    "language": "Rust",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "fluteur": {
+    "name": "fluteur",
+    "description": "\ud83e\ude88 A self-updating website hosted entirely in Github. Currently, a blog of GPT poetry",
+    "homepage": "https://elh.github.io/fluteur/",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "gh-organizer": {
+    "name": "gh-organizer",
+    "description": "\ud83d\udcc7 Github org (and user) stats and timeline visualizer",
+    "homepage": "https://elh.github.io/gh-organizer/",
+    "language": "TypeScript",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "gossip-glomers": {
+    "name": "gossip-glomers",
+    "description": "\ud83d\ude4a My complete Gossip Glomers solutions in Clojure",
+    "homepage": "https://fly.io/dist-sys/",
+    "language": "Clojure",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "gpt-doc-chat": {
+    "name": "gpt-doc-chat",
+    "description": "\ud83d\udcce My impl of the overplayed doc Q&A. My first GPT experiments",
+    "homepage": "",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "hitchens": {
+    "name": "hitchens",
+    "description": "An inarguably well-designed Jekyll theme. Forked for https://github.com/elh/fluteur",
+    "homepage": "https://elh.github.io/fluteur/",
+    "language": "SCSS",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "learntla-v2": {
+    "name": "learntla-v2",
+    "description": null,
+    "homepage": null,
+    "language": null,
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "make-evals": {
+    "name": "make-evals",
+    "description": "\ud83e\uddea My workspace for writing openai/evals",
+    "homepage": "https://github.com/openai/evals",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "petri-tlaplus": {
+    "name": "petri-tlaplus",
+    "description": "\ud83d\udd78 TLA+ specifications for Petri nets",
+    "homepage": "",
+    "language": "TLA",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "quarry": {
+    "name": "quarry",
+    "description": "\ud83e\uddee Tiny expert system demo for hypertension recommendations",
+    "homepage": "",
+    "language": "Prolog",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "roxie-theater": {
+    "name": "roxie-theater",
+    "description": "\ud83c\udf7f Fetch Roxie Theater showtimes and format them for Letterboxd [obsolete]",
+    "homepage": "https://letterboxd.com/eugeually/list/roxie-theater-2022/",
+    "language": "Python",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "tlaplus-Examples": {
+    "name": "tlaplus-Examples",
+    "description": "A collection of TLA+ specifications of varying complexities",
+    "homepage": "",
+    "language": "TLA",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  },
+  "whodunit": {
+    "name": "whodunit",
+    "description": "\ud83e\udd93 Logic puzzle generator using Clojure core.logic",
+    "homepage": "",
+    "language": "Clojure",
+    "owner_login": "elh",
+    "owner_name": "Eugene Huang"
+  }
+}

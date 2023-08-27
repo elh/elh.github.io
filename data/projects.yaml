@@ -1,0 +1,21 @@
+---
+groups:
+- name: DBs
+  repos:
+  - repo: dignum
+    desc: REST API generator for XTDB w/ schema-on-write
+  - repo: bitempura
+    desc: Toy, in-memory, bitemporal key-value db
+  - repo: bitempura-viz
+    desc: Bitemporal 2D valid + tx time visualizer
+- name: Logic Programming
+  repos:
+  - repo: whodunit
+    desc: Logic puzzle generator using core.logic
+  - repo: quarry
+    desc: Tiny expert system demo using SWI-Prolog
+- name: Formal Specification
+- name: LLMs
+- name: Games
+- name: Challenges
+- name: Miscellaneous

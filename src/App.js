@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { Github, Linkedin, Twitter, ArrowUpRightSquare } from 'lucide-react';
 
+
 function Markdown({ fileName }) {
   const [markdown, setMarkdown] = useState("");
   useEffect(() => {
@@ -14,6 +15,41 @@ function Markdown({ fileName }) {
     <article class="prose prose-sm">
       <ReactMarkdown children={markdown}></ReactMarkdown>
     </article>
+  );
+}
+
+function Projects() {
+  const [projects, setProjects] = useState("");
+  useEffect(() => {
+    fetch(`${process.env.PUBLIC_URL}/projects.json`)
+        .then(res => res.text())
+        .then(text => setProjects(JSON.parse(text)));
+  }, []);
+  console.log(projects)
+  if (projects) {
+    console.log(projects.groups)
+  }
+
+  return (
+    <div>
+      <div className="mt-4">As a resolution in 2022, I started tinkering with side projects.</div>
+      {projects && projects.groups.map((group, i) =>
+        <div>
+          <div className="mt-4">{group.name}</div>
+          {group.repos && group.repos.map((repo, j) =>
+            <div>
+              <span className="font-bold">❧ <a href={`https://github.com/elh/`+repo.repo} className="link link-hover">{repo.repo} </a></span>
+              { repo.homepage &&
+                <a href={repo.homepage} className="link link-hover">
+                  (<ArrowUpRightSquare size={11} strokeWidth={2.0} /> live)
+                </a>
+              }
+              <span>- {repo.desc}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -34,38 +70,7 @@ function App() {
               <a href={`https://twitter.com/elh_online`} className="link link-hover"><Twitter size={16} strokeWidth={2.0} /></a>
             </div>
           </header>
-          <div className="mt-4">As a resolution in 2022, I started tinkering with side projects.</div>
-          <div>
-            <div className="mt-4">Logic Programming</div>
-            <div>
-              <span className="font-bold">❧ <a href={`https://github.com/elh/whodunit`} className="link link-hover">whodunit</a></span>
-              <span> - Logic puzzle generator using core.logic</span>
-            </div>
-            <div>
-              <span className="font-bold">❧ <a href={`https://github.com/elh/quarry`} className="link link-hover">quarry</a></span>
-              <span> - Tiny expert system demo using SWI-Prolog</span>
-            </div>
-          </div>
-          <div>
-            <div className="mt-4">DBs</div>
-            <div>
-              <span className="font-bold">❧ <a href={`https://github.com/elh/dignum`} className="link link-hover">dignum</a></span>
-              <span> - REST API generator for XTDB w/ schema-on-write</span>
-            </div>
-            <div>
-              <span className="font-bold">❧ <a href={`https://github.com/elh/bitempura`} className="link link-hover">bitempura</a></span>
-              <span> - Toy, in-memory, bitemporal key-value db</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="font-bold">❧ <a href={`https://github.com/elh/bitempura-viz`} className="link link-hover">bitempura-viz</a></span>
-              <span>
-                <a href={`https://elh.github.io/bitempura-viz/#/bitempura-viz/`} className="link link-hover">
-                  (<ArrowUpRightSquare size={11} strokeWidth={2.0} /> live)
-                </a>
-              </span>
-              <span> - Bitemporal 2D valid + tx time visualizer</span>
-            </div>
-          </div>
+          <Projects />
         </div>
       </div>
     </div>
