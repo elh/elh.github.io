@@ -17,17 +17,14 @@ function Markdown({ fileName }) {
   );
 }
 
-function Projects() {
-  const [projects, setProjects] = useState("");
-  useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/projects.json`)
-        .then(res => res.text())
-        .then(text => setProjects(JSON.parse(text)));
-  }, []);
-
+function Projects({ projects }) {
+  if (!projects) {
+    return null;
+  }
   return (
     <div>
-      <div className="mt-4">As a resolution in 2022, I started tinkering with personal projects.</div>
+      <div className="mt-4">{projects.intro}</div>
+      <div className="my-4 text-center">⁂</div>
       {projects && projects.groups.map((group, i) =>
         <div>
           <div className="mt-4">{group.name.toUpperCase()}</div>
@@ -49,6 +46,13 @@ function Projects() {
 }
 
 function App() {
+  const [content, setContent] = useState("");
+  useEffect(() => {
+    fetch(`${process.env.PUBLIC_URL}/content.json`)
+        .then(res => res.text())
+        .then(text => setContent(JSON.parse(text)));
+  }, []);
+
   return (
     <div>
       <div className="flex justify-center items-center pt-[4rem]">
@@ -61,7 +65,9 @@ function App() {
               <a href={`https://twitter.com/elh_online`} className="link link-hover"><Twitter size={16} strokeWidth={2.0} /></a>
             </div>
           </header>
-          <Projects />
+          <Projects projects={content.projects} />
+          <div className="my-4 text-center">⁂</div>
+          <div className="mt-4">{content.about_me}</div>
         </div>
       </div>
     </div>
