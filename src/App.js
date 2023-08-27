@@ -24,10 +24,6 @@ function Projects() {
         .then(res => res.text())
         .then(text => setProjects(JSON.parse(text)));
   }, []);
-  console.log(projects)
-  if (projects) {
-    console.log(projects.groups)
-  }
 
   return (
     <div>
