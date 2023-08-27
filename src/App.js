@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Github, Linkedin, Twitter, ArrowUpRightSquare } from 'lucide-react';
-
+import { Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
 
 function Markdown({ fileName }) {
   const [markdown, setMarkdown] = useState("");
@@ -32,7 +31,7 @@ function Projects() {
 
   return (
     <div>
-      <div className="mt-4">As a resolution in 2022, I started tinkering with side projects.</div>
+      <div className="mt-4">As a resolution in 2022, I started tinkering with personal projects.</div>
       {projects && projects.groups.map((group, i) =>
         <div>
           <div className="mt-4">{group.name}</div>
@@ -41,10 +40,10 @@ function Projects() {
               <span className="font-bold">❧ <a href={`https://github.com/elh/`+repo.repo} className="link link-hover">{repo.repo} </a></span>
               { repo.homepage &&
                 <a href={repo.homepage} className="link link-hover">
-                  (<ArrowUpRightSquare size={11} strokeWidth={2.0} /> live)
+                  (<ExternalLink size={12} strokeWidth={2.0} /> live)
                 </a>
               }
-              <span>- {repo.desc}</span>
+              <span> - {repo.desc}</span>
             </div>
           )}
         </div>
@@ -53,10 +52,6 @@ function Projects() {
   );
 }
 
-/*
-TODO:
-generate the list from config file
-*/
 function App() {
   return (
     <div>

@@ -6,8 +6,10 @@ groups:
     desc: REST API generator for XTDB w/ schema-on-write
   - repo: bitempura
     desc: Toy, in-memory, bitemporal key-value db
+    homepage: https://elh.github.io/bitempura-viz/#/bitempura-viz/interactive
   - repo: bitempura-viz
     desc: Bitemporal 2D valid + tx time visualizer
+    homepage: https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample
 - name: Logic Programming
   repos:
   - repo: whodunit
@@ -15,7 +17,42 @@ groups:
   - repo: quarry
     desc: Tiny expert system demo using SWI-Prolog
 - name: Formal Specification
+  repos:
+  - repo: petri-tlaplus
+    desc: TLA+ specifications for Petri nets
 - name: LLMs
+  repos:
+  - repo: fluteur
+    desc: A GPT-powered self-updating website hosted entirely in Github
+    homepage: https://elh.github.io/fluteur/
+  - repo: 0-0-0
+    desc: Play chess against GPT
+    homepage: https://elh.github.io/0-0-0/
+  - repo: make-evals
+    desc: My workspace for writing openai/evals
+  - repo: gpt-doc-chat
+    desc: My early implementation of the overplayed "doc Q&A" feature
 - name: Games
+  repos:
+  - repo: bettor
+    desc: "\"Twitch predictions\"-inspired parimutuel betting Discord bot"
+  - repo: detective
+    desc: Engine for text-based detective games in the style of "Her Story"
 - name: Challenges
+  repos:
+  - repo: gossip-glomers
+    desc: My complete Gossip Glomers solutions in Clojure
+  - repo: advent-2022
+    desc: My complete 50-star 2022 Advent of Code in Clojure
+  - repo: feynman-781
+    desc: Performant graph generator for Feynman diagrams*
+  - repo: advent-2019
+    desc: My short-lived 2019 Advent of Code in Clojure
 - name: Miscellaneous
+  repos:
+  - repo: gh-organizer
+    desc: Github org and user timeline visualizer
+    homepage: https://elh.github.io/gh-organizer/
+  - repo: roxie-theater
+    desc: Fetch Roxie Theater showtimes for Letterboxd
+    homepage: https://letterboxd.com/eugeually/list/roxie-theater-2022/

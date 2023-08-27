@@ -20,11 +20,16 @@ for repo in g.get_user().get_repos():
         continue
     if repo.visibility != 'public':
         continue
+    if repo.fork:
+        continue
     repos[repo.name] = {
         'name': repo.name,
         'description': repo.description,
         'homepage': repo.homepage,
         'language': repo.language,
+        'visibility': repo.visibility,
+        'archived': repo.archived,
+        'fork': repo.fork,
         'owner_login': repo.owner.login,
         'owner_name': repo.owner.name,
     }
