@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 
+// note: use this to bootstrap project specific pager later
+/* eslint-disable no-unused-vars */
 function Markdown({ fileName }) {
   const [markdown, setMarkdown] = useState("");
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/${fileName}`)
         .then(res => res.text())
         .then(text => setMarkdown(text));
-  }, []);
+  }, [fileName]);
 
   return (
     <article class="prose prose-sm">
@@ -17,6 +19,7 @@ function Markdown({ fileName }) {
     </article>
   );
 }
+/* eslint-disable no-unused-vars */
 
 function Projects({ projects }) {
   if (!projects) {
@@ -25,8 +28,8 @@ function Projects({ projects }) {
   return (
     <div>
       <div className="mt-4">
-        {/* Not using projects.intro because I want to directly style the text */}
-        Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be <span className="underline decoration-wavy underline-offset-0">creative</span>. All projects are functional MVPs, documented, and runnable. Check them out!
+        {/* Factor out into content file when I support html/markdown */}
+        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to learn-by-doing and be <span className="underline decoration-wavy underline-offset-0 decoration-red-500">creative</span>. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       <div className="my-4 text-center text-xl">⁂</div>
       {projects && projects.groups.map((group, i) =>
@@ -44,9 +47,9 @@ function Projects({ projects }) {
                 : <span className="font-bold">❧ <a href={`https://github.com/elh/`+repo.repo} className="link link-hover">{repo.repo} </a></span>
               }
               { repo.homepage &&
-                <a href={repo.homepage} className="link link-hover">
-                  (<ExternalLink size={12} strokeWidth={2.0} /> live)
-                </a>
+                <span>
+                  (<a href={repo.homepage} className="link">site</a>)
+                </span>
               }
               <span> - {repo.desc}</span>
             </div>
@@ -69,7 +72,7 @@ function App() {
     <div>
       <div className="flex justify-center">
         <div className="w-[44rem] mx-4 mb-4">
-          <img className="mb-6 invert-0 dark:invert" src={coverImg} />
+          <img className="mb-6 invert-0 dark:invert" alt="" src={coverImg} />
           <header className="flex justify-between items-center">
             <a href={process.env.PUBLIC_URL} className="text-2xl font-extrabold link link-hover">{"Eugene L Huang".toUpperCase()}</a>
             <div className="flex space-x-2">
@@ -80,7 +83,8 @@ function App() {
           </header>
           <Projects projects={content.projects} />
           <div className="my-4 text-center text-xl">⁂</div>
-          <div className="mt-4">{content.about_me}</div>
+          {/* Factor out into content file when I support html/markdown */}
+          <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div>
         </div>
       </div>
     </div>

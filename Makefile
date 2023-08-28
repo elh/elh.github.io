@@ -6,6 +6,10 @@ content:
 fetch:
 	@python scripts/fetch_github_repos.py
 
+.PHONY: run
+run:
+	@npm run start
+
 .PHONY: deploy
 deploy:
 	@npm run deploy
