@@ -24,8 +24,11 @@ function Projects({ projects }) {
   }
   return (
     <div>
-      <div className="mt-4">{projects.intro}</div>
-      <div className="my-4 text-center">⁂</div>
+      <div className="mt-4">
+        {/* Not using projects.intro because I want to directly style the text */}
+        Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be <span className="underline decoration-wavy underline-offset-0">creative</span>. All projects are functional MVPs, documented, and runnable. Check them out!
+      </div>
+      <div className="my-4 text-center text-xl">⁂</div>
       {projects && projects.groups.map((group, i) =>
         <div>
           <div className="mt-4">{group.name.toUpperCase()}</div>
@@ -76,7 +79,7 @@ function App() {
             </div>
           </header>
           <Projects projects={content.projects} />
-          <div className="my-4 text-center">⁂</div>
+          <div className="my-4 text-center text-xl">⁂</div>
           <div className="mt-4">{content.about_me}</div>
         </div>
       </div>

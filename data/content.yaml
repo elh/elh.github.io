@@ -1,9 +1,9 @@
 ---
 # about_me: I'm a software engineer at Forward working on radically rebuilding health care in the world of software and hardware. Prior to that, I worked on transforming files into structured data for apps and automation at Box. Prior to that, studied EECS at UC Berkeley.
-about_me: I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley.
+about_me: I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley. :)
 projects:
   intro: |
-    Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out! :)
+    Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out!
   groups:
   - name: DB
     repos:

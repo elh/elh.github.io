@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 from github import Github, Auth
 
 '''
@@ -34,5 +35,10 @@ for repo in g.get_user().get_repos():
         'owner_name': repo.owner.name,
     }
 
+out = {
+    'fetched_at': str(datetime.datetime.now()),
+    'repos': repos,
+}
+
 with open('data/repos.json', 'w') as f:
-    json.dump(repos, f, indent=2)
+    json.dump(out, f, indent=2)

@@ -1,7 +1,7 @@
 {
-  "about_me": "I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley.",
+  "about_me": "I'm an engineer at Forward working on radically rebuilding healthcare in software and hardware. Prior to that, I was building a new structured data product at Box and studied EECS at UC Berkeley. :)",
   "projects": {
-    "intro": "Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out! :)\n",
+    "intro": "Since 2022, I started tinkering with personal projects as a resolution to share ideas more. I use these weeklong spikes to learn-by-doing and be creative. All projects are functional MVPs, documented, and runnable. Check them out!\n",
     "groups": [
       {
         "name": "DB",
