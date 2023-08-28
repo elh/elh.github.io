@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
+import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 
 function Markdown({ fileName }) {
   const [markdown, setMarkdown] = useState("");
@@ -63,8 +64,9 @@ function App() {
 
   return (
     <div>
-      <div className="flex justify-center items-center pt-[4rem]">
+      <div className="flex justify-center">
         <div className="w-[44rem]">
+          <img className="mb-6 invert-0 dark:invert" src={coverImg} />
           <header className="flex justify-between items-center">
             <a href={process.env.PUBLIC_URL} className="text-2xl font-extrabold link link-hover">{"Eugene L Huang".toUpperCase()}</a>
             <div className="flex space-x-2">
