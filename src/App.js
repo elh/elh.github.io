@@ -68,7 +68,7 @@ function App() {
   return (
     <div>
       <div className="flex justify-center">
-        <div className="w-[44rem]">
+        <div className="w-[44rem] mx-4 mb-4">
           <img className="mb-6 invert-0 dark:invert" src={coverImg} />
           <header className="flex justify-between items-center">
             <a href={process.env.PUBLIC_URL} className="text-2xl font-extrabold link link-hover">{"Eugene L Huang".toUpperCase()}</a>
