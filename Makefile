@@ -5,3 +5,7 @@ content:
 .PHONY: fetch
 fetch:
 	@python scripts/fetch_github_repos.py
+
+.PHONY: deploy
+deploy:
+	@npm run deploy
