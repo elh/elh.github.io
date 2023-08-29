@@ -5,7 +5,7 @@ projects:
     repos:
     - repo: dignum
       desc: REST API generator for XTDB w/ schema-on-write
-      q: How does app-level schema work in a schemaless graph db?
+      q: How can app-level schema be used in a schemaless graph db?
     - repos: [bitempura, bitempura-viz]
       desc: Toy bitemporal key-value db + visualizer
       q: How is bitemporality implemented?
@@ -20,7 +20,7 @@ projects:
       q: Can I procedurally generate detective games?
     - repo: quarry
       desc: Tiny hypertension expert system demo using SWI-Prolog
-      q: How does meta-programming work?
+      q: What is meta-programming?
   - name: LLM
     repos:
     - repo: fluteur
@@ -33,7 +33,7 @@ projects:
       homepage: https://elh.github.io/0-0-0/
     - repo: make-evals
       desc: My workspace for writing openai/evals
-      q: How does LLM evaluation work?
+      q: What are the best practices for LLM evaluation?
     # - repo: gpt-doc-chat
     #   desc: My early implementation of the overplayed "doc Q&A" feature
     #   q: Given a website, can I automate basic customer suppport for it?
@@ -41,15 +41,15 @@ projects:
     repos:
     - repo: bettor
       desc: "\"Twitch predictions\"-inspired parimutuel betting Discord bot in Go and Protobuf"
-      q: How do Discord bots work?
+      q: How are Discord bots run?
     - repo: detective
       desc: Engine for text-based detective games in the style of "Her Story"
-      q: How does the detective game, "Her Story", work?
+      q: What is the core engine in the detective game, "Her Story"?
   - name: Challenges
     repos:
     - repo: gossip-glomers
       desc: My complete Gossip Glomers solutions in Clojure
-      q: How does eventual consistency work?
+      q: How is eventual consistency implemented?
     - repo: advent-2022
       desc: My complete 50-star 2022 Advent of Code in Clojure
       q: What is writing Clojure like? (I love Lisp)
