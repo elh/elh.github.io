@@ -6,7 +6,8 @@
         "repos": [
           {
             "repo": "dignum",
-            "desc": "REST API generator for XTDB w/ schema-on-write"
+            "desc": "REST API generator for XTDB w/ schema-on-write",
+            "q": "How does app-level schema work in a schemaless graph db?"
           },
           {
             "repos": [
@@ -14,6 +15,7 @@
               "bitempura-viz"
             ],
             "desc": "Toy bitemporal key-value db + visualizer",
+            "q": "How is bitemporality implemented?",
             "homepage": "https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample"
           }
         ]
@@ -23,15 +25,18 @@
         "repos": [
           {
             "repo": "petri-tlaplus",
-            "desc": "TLA+ specifications for Petri nets"
+            "desc": "TLA+ specifications for Petri nets",
+            "q": "Are these complex Petri nets bound?"
           },
           {
             "repo": "whodunit",
-            "desc": "Logic puzzle generator using core.logic"
+            "desc": "Logic puzzle generator using core.logic",
+            "q": "Can I procedurally generate detective games?"
           },
           {
             "repo": "quarry",
-            "desc": "Tiny hypertension expert system demo using SWI-Prolog"
+            "desc": "Tiny hypertension expert system demo using SWI-Prolog",
+            "q": "How does meta-programming work?"
           }
         ]
       },
@@ -41,20 +46,19 @@
           {
             "repo": "fluteur",
             "desc": "A GPT-powered self-updating website hosted entirely in Github",
+            "q": "Can GPT run a blog?",
             "homepage": "https://elh.github.io/fluteur/"
           },
           {
             "repo": "0-0-0",
             "desc": "Play chess against GPT",
+            "q": "Can GPT beat me at chess? (spoiler: it's bad)",
             "homepage": "https://elh.github.io/0-0-0/"
           },
           {
             "repo": "make-evals",
-            "desc": "My workspace for writing openai/evals"
-          },
-          {
-            "repo": "gpt-doc-chat",
-            "desc": "My early implementation of the overplayed \"doc Q&A\" feature"
+            "desc": "My workspace for writing openai/evals",
+            "q": "How does LLM evaluation work?"
           }
         ]
       },
@@ -63,11 +67,13 @@
         "repos": [
           {
             "repo": "bettor",
-            "desc": "\"Twitch predictions\"-inspired parimutuel betting Discord bot in Go and Protobuf"
+            "desc": "\"Twitch predictions\"-inspired parimutuel betting Discord bot in Go and Protobuf",
+            "q": "How do Discord bots work?"
           },
           {
             "repo": "detective",
-            "desc": "Engine for text-based detective games in the style of \"Her Story\""
+            "desc": "Engine for text-based detective games in the style of \"Her Story\"",
+            "q": "How does the detective game, \"Her Story\", work?"
           }
         ]
       },
@@ -76,19 +82,18 @@
         "repos": [
           {
             "repo": "gossip-glomers",
-            "desc": "My complete Gossip Glomers solutions in Clojure"
+            "desc": "My complete Gossip Glomers solutions in Clojure",
+            "q": "How does eventual consistency work?"
           },
           {
             "repo": "advent-2022",
-            "desc": "My complete 50-star 2022 Advent of Code in Clojure"
+            "desc": "My complete 50-star 2022 Advent of Code in Clojure",
+            "q": "What is writing Clojure like? (I love Lisp)"
           },
           {
             "repo": "feynman-781",
-            "desc": "Performant graph generator for Feynman diagrams* in Rust"
-          },
-          {
-            "repo": "advent-2019",
-            "desc": "My short-lived 2019 Advent of Code in Clojure"
+            "desc": "Performant graph generator for Feynman diagrams* in Rust",
+            "q": "What is writing Rust like?"
           }
         ]
       },
@@ -98,11 +103,13 @@
           {
             "repo": "gh-organizer",
             "desc": "Github org and user timeline visualizer",
+            "q": "How have projects evolved over time in my Github org?",
             "homepage": "https://elh.github.io/gh-organizer/"
           },
           {
             "repo": "roxie-theater",
             "desc": "Fetch Roxie Theater showtimes for Letterboxd",
+            "q": "What's playing this month at the Roxie?",
             "homepage": "https://letterboxd.com/eugeually/list/roxie-theater-2022/"
           }
         ]
