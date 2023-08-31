@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
+import {isMobile} from 'react-device-detect';
 import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 
 // note: use this to bootstrap project specific pager later
@@ -23,6 +24,7 @@ function Markdown({ fileName }) {
 
 function Projects({ projects }) {
   const [showQuestions, setShowQuestions] = useState(false);
+  const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
 
   const toggleShowQuestions = () => {
     setShowQuestions(!showQuestions);
@@ -35,7 +37,7 @@ function Projects({ projects }) {
     <div>
       <div className="mt-4">
         {/* Factor out into content file when I support html/markdown */}
-        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} target="_blank" rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be <a href={"https://elh.github.io/ePhone/"}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>. All projects are functional MVPs, documented, and runnable. Check them out!
+        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} target="_blank" rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       <div className="mt-4 text-center text-xl">⁂</div>
       {projects && projects.groups.map((group, i) =>

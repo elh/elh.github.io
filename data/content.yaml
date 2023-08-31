@@ -63,7 +63,7 @@ projects:
     - repo: ePhone
       desc: Render an iframe on an iPhone model using three.js
       q: How can HTML be rendered in 3D?
-      homepage: https://elh.github.io/ePhone/
+      homepage: https://elh.github.io/ePhone/?url=https://en.wikipedia.org/wiki/Wikipedia
     - repo: gh-organizer
       desc: Github org and user timeline visualizer
       q: How have projects evolved over time in my Github org?
