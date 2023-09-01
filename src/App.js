@@ -37,7 +37,7 @@ function Projects({ projects }) {
     <div>
       <div className="mt-4">
         {/* Factor out into content file when I support html/markdown */}
-        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} target="_blank" rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
+        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       <div className="mt-4 text-center text-xl">⁂</div>
       {projects && projects.groups.map((group, i) =>
@@ -56,7 +56,7 @@ function Projects({ projects }) {
               }
               { repo.homepage &&
                 <span>
-                  (<a href={repo.homepage} target="_blank" rel="noreferrer" className="link">site</a>)
+                  (<a href={repo.homepage} rel="noreferrer" className="link">site</a>)
                 </span>
               }
               { showQuestions
@@ -95,7 +95,7 @@ function App() {
           <Projects projects={content.projects} />
           <div className="my-4 text-center text-xl">⁂</div>
           {/* Factor out into content file when I support html/markdown */}
-          <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} target="_blank" rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div>
+          <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div>
         </div>
       </div>
     </div>
