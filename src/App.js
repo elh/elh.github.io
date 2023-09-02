@@ -22,7 +22,7 @@ function Markdown({ fileName }) {
 }
 /* eslint-disable no-unused-vars */
 
-function Projects({ projects }) {
+function Projects({ projects, iframed }) {
   const [showQuestions, setShowQuestions] = useState(false);
   const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
 
@@ -49,10 +49,10 @@ function Projects({ projects }) {
                 ? <span>
                   <span className="font-bold"></span>
                   {repo.repos.map((repo, k) =>
-                    <span className="font-bold"><a href={`https://github.com/elh/`+repo} className="link link-hover decoration-2">{repo}{k > 0 ? " ": ", "}</a></span>
+                    <span className="font-bold"><a href={`https://github.com/elh/`+repo} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover decoration-2">{repo}{k > 0 ? " ": ", "}</a></span>
                   )}
                   </span>
-                : <span className="font-bold"><a href={`https://github.com/elh/`+repo.repo} className="link link-hover decoration-2">{repo.repo} </a></span>
+                : <span className="font-bold"><a href={`https://github.com/elh/`+repo.repo} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover decoration-2">{repo.repo} </a></span>
               }
               { repo.homepage &&
                 <span>
@@ -73,6 +73,7 @@ function Projects({ projects }) {
 
 function App() {
   const [content, setContent] = useState("");
+  const [iframed, _] = useState(window.location !== window.parent.location);
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/content.json`)
         .then(res => res.text())
@@ -87,15 +88,15 @@ function App() {
           <header className="flex justify-between items-center mt-6">
             <a href={process.env.PUBLIC_URL} className="text-5xl font-black link link-hover decoration-4">{"Eugene L Huang".toUpperCase()}</a>
             <div className="flex space-x-2">
-              <a href={`https://github.com/elh`} className="link link-hover"><Github size={24} strokeWidth={2.4} /></a>
-              <a href={`https://www.linkedin.com/in/elhonline/`} className="link link-hover"><Linkedin size={24} strokeWidth={2.4} /></a>
-              <a href={`https://twitter.com/elh_online`} className="link link-hover"><Twitter size={24} strokeWidth={2.4} /></a>
+              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={24} strokeWidth={2.4} /></a>
+              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={24} strokeWidth={2.4} /></a>
+              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={24} strokeWidth={2.4} /></a>
             </div>
           </header>
-          <Projects projects={content.projects} />
+          <Projects projects={content.projects} iframed={iframed} />
           <div className="my-4 text-center text-xl">⁂</div>
           {/* Factor out into content file when I support html/markdown */}
-          <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div>
+          <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div>
         </div>
       </div>
     </div>
