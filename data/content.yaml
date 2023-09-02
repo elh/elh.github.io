@@ -10,6 +10,7 @@ projects:
       desc: Toy bitemporal key-value db + visualizer
       q: How is bitemporality implemented?
       homepage: https://elh.github.io/bitempura-viz/#/tests/TestRobinhoodExample
+      iframe_safe: false
   - name: Logic Programming, Formal Specification
     repos:
     - repo: petri-tlaplus
@@ -27,10 +28,12 @@ projects:
       desc: A GPT-powered self-updating website hosted entirely in Github
       q: Can GPT run a blog?
       homepage: https://elh.github.io/fluteur/
+      iframe_safe: true
     - repo: 0-0-0
       desc: Play chess against GPT
       q: "Can GPT beat me at chess? (spoiler: it's bad)"
       homepage: https://elh.github.io/0-0-0/
+      iframe_safe: false
     - repo: make-evals
       desc: My workspace for writing openai/evals
       q: What are the best practices for LLM evaluation?
@@ -64,11 +67,14 @@ projects:
       desc: Render an iframe on an iPhone model using three.js
       q: How can HTML be rendered in 3D?
       homepage: https://elh.github.io/ePhone/?url=https://en.wikipedia.org/wiki/Wikipedia
+      iframe_safe: true
     - repo: gh-organizer
       desc: Github org and user timeline visualizer
       q: How have projects evolved over time in my Github org?
       homepage: https://elh.github.io/gh-organizer/
+      iframe_safe: true
     - repo: roxie-theater
       desc: Fetch Roxie Theater showtimes for Letterboxd
       q: What's playing this month at the Roxie?
       homepage: https://letterboxd.com/eugeually/list/roxie-theater-2022/
+      iframe_safe: false

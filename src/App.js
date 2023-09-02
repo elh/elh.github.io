@@ -56,7 +56,7 @@ function Projects({ projects, iframed }) {
               }
               { repo.homepage &&
                 <span>
-                  (<a href={repo.homepage} rel="noreferrer" className="link">site</a>)
+                  (<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link">site</a>)
                 </span>
               }
               { showQuestions
