@@ -87,11 +87,6 @@ function App() {
           <img className="mb-6 invert-0 dark:invert" alt="" src={coverImg} />
           <header className="flex justify-between items-center mt-6">
             <a href={process.env.PUBLIC_URL} className="text-5xl font-black link link-hover decoration-4">{"Eugene L Huang".toUpperCase()}</a>
-            <div className="flex space-x-2">
-              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={24} strokeWidth={2.2} /></a>
-              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={24} strokeWidth={2.2} /></a>
-              {/* <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={24} strokeWidth={2.2} /></a> */}
-            </div>
           </header>
           <Projects projects={content.projects} iframed={iframed} />
           {/* <div className="mt-14 chat chat-end">
@@ -107,6 +102,11 @@ function App() {
           {/* Factor out into content file when I support html/markdown */}
           {/* <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
           {/* <div className="mt-8 text-sm text-center font-mono">{'<!-- TODO: add stuff -->'}</div> */}
+          <div className="my-10 flex justify-center space-x-2">
+            <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={20} strokeWidth={2} /></a>
+            <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={20} strokeWidth={2} /></a>
+            {/* <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={24} strokeWidth={2.2} /></a> */}
+          </div>
         </div>
       </div>
     </div>
