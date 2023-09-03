@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Github, Linkedin, MousePointerClick } from 'lucide-react';
+import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 
@@ -35,7 +35,7 @@ function Projects({ projects, iframed }) {
   }
   return (
     <div>
-      <div className="mt-6">
+      <div>
         {/* Factor out into content file when I support html/markdown */}
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
@@ -81,12 +81,12 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div className="flex justify-center">
-        <div className="w-[44rem] mx-4 mb-6">
-          <img className="mb-6 invert-0 dark:invert" alt="" src={coverImg} />
-          <header className="flex justify-between items-center mt-6">
-            <a href={process.env.PUBLIC_URL} className="text-5xl font-black link link-hover decoration-4">{"Eugene L Huang".toUpperCase()}</a>
+    <div className="flex flex-wrap h-screen">
+      <div className="flex flex-wrap justify-center m-auto">
+        <div className="max-w-[44rem] mx-4 mb-6">
+          <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} />
+          <header className="flex flex-wrap justify-between items-center mt-6 mb-4">
+            <a href={process.env.PUBLIC_URL} className="text-3xl font-bold">{"Eugene L Huang".toUpperCase()}</a>
           </header>
           <Projects projects={content.projects} iframed={iframed} />
           {/* <div className="mt-14 chat chat-end">
@@ -102,10 +102,10 @@ function App() {
           {/* Factor out into content file when I support html/markdown */}
           {/* <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
           {/* <div className="mt-8 text-sm text-center font-mono">{'<!-- TODO: add stuff -->'}</div> */}
-          <div className="my-10 flex justify-center space-x-2">
+          <div className="my-10 flex flex-wrap space-x-2 justify-end">
             <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={20} strokeWidth={2} /></a>
             <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={20} strokeWidth={2} /></a>
-            {/* <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={24} strokeWidth={2.2} /></a> */}
+            <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={20} strokeWidth={2} /></a>
           </div>
         </div>
       </div>
