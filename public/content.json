@@ -76,7 +76,7 @@
           {
             "repo": "detective",
             "desc": "Engine for text-based detective games in the style of \"Her Story\"",
-            "q": "What is the core engine in the detective game, \"Her Story\"?"
+            "q": "What is the core loop of the detective game, \"Her Story\"?"
           }
         ]
       },
