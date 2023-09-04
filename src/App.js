@@ -29,10 +29,13 @@ import { AsciiRenderer } from '@react-three/drei'
 function TorusMesh() {
   const ref = useRef()
   const viewport = useThree((state) => state.viewport)
-  useFrame((state, delta) => (ref.current.rotation.x = ref.current.rotation.y += delta / 4))
+  useFrame((state, delta) => {
+    ref.current.rotation.x = ref.current.rotation.x += delta / 5
+    ref.current.rotation.y = ref.current.rotation.y += delta / 10
+  })
   return (
     <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref}>
-      <torusGeometry args={[1.6, 0.1, 128, 32]} />
+      <torusGeometry args={[1.7, 0.15, 128, 32]} />
       <meshStandardMaterial color="red" />
     </mesh>
   )
@@ -43,10 +46,10 @@ function Torus({ color }) {
     <div className="w-full h-full fixed top-0 left-0 -z-10">
       <Canvas>\
         <color attach="background" args={['black']} />
-        <spotLight position={[1.5, 1.5, 1.5]} angle={2} penumbra={1} intensity={15} decay={1} />
-        <pointLight position={[-1.5, -1.5, -1.5]} distance={10} intensity={5} decay={1}/>
+        <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={30} decay={1} />
+        <pointLight position={[-4, -4, -4]} distance={10} intensity={10} decay={1}/>
         <TorusMesh />
-        <AsciiRenderer fgColor={color} bgColor="transparent" />
+        <AsciiRenderer fgColor={color} bgColor="transparent" resolution={0.2} />
       </Canvas>
     </div>
   );
@@ -108,6 +111,7 @@ function Home({ iframed }) {
       {/* Factor out into content file when I support html/markdown */}
       {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
       <div className="flex">
+        {!isMobile && <Torus color="#c4c4c4" />} {/* no 3D on mobile */}
         <div className="w-5/12">
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
@@ -127,7 +131,6 @@ function Home({ iframed }) {
 function NotFound() {
   return (
     <div className='flex'>
-      <Torus color="#a1a1a1" />
       <span>∅ Page not found.</span>
     </div>
   );
