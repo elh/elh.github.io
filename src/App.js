@@ -5,6 +5,7 @@ import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 // import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 import selfieImg from "./img/selfie.jpg";
+import lowerHateImg from "./img/lower_hate.jpg";
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AsciiRenderer } from '@react-three/drei'
 
@@ -46,8 +47,8 @@ function Torus({ color }) {
     <div className="w-full h-full fixed top-0 left-0 -z-10">
       <Canvas>\
         <color attach="background" args={['black']} />
-        <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={30} decay={1} />
-        <pointLight position={[-4, -4, -4]} distance={10} intensity={10} decay={1}/>
+        <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={40} decay={1} />
+        <pointLight position={[-4, -4, -4]} distance={10} intensity={20} decay={1}/>
         <TorusMesh />
         <AsciiRenderer fgColor={color} bgColor="transparent" resolution={0.2} />
       </Canvas>
@@ -105,6 +106,12 @@ function Projects({ projects, iframed }) {
 
 function Home({ iframed }) {
   const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
+  const [photoIdx, setPhotoIdx] = useState(0);
+
+  const photos = [
+    <img alt="Moody camera mirror selfie" src={selfieImg} />,
+    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} />
+  ]
 
   return (
     <div>
@@ -116,12 +123,16 @@ function Home({ iframed }) {
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
             <li>^ loves a <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side project</a></li>
-            <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a>™</li>
+            <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li>
+            <li>^ shoots film</li>
+            {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
             {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
         </div>
         <div className="w-7/12">
-          <img alt="A tasteful mirror selfie of Eugene" src={selfieImg} />
+          <button onClick={() => setPhotoIdx((photoIdx + 1) % photos.length)}>
+            {photos[photoIdx]}
+          </button>
         </div>
       </div>
     </div>
