@@ -40,7 +40,7 @@ function TorusMesh() {
 
 function Torus({ color }) {
   return (
-    <div className="w-full h-full fixed top-0 left-0">
+    <div className="w-full h-full fixed top-0 left-0 -z-10">
       <Canvas>\
         <color attach="background" args={['black']} />
         <spotLight position={[1.5, 1.5, 1.5]} angle={2} penumbra={1} intensity={15} decay={1} />
