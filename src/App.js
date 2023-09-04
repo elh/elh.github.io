@@ -118,16 +118,32 @@ function Home({ iframed }) {
       {/* Factor out into content file when I support html/markdown */}
       {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
       <div className="flex">
-        {!isMobile && <Torus color="#c4c4c4" />} {/* no 3D on mobile */}
+        {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
         <div className="w-5/12">
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>^ loves a <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side project</a></li>
-            <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li>
+            <li>^ loves <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
+            {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
             <li>^ shoots film</li>
             {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
             {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
+          <div className="mt-16 text-center">
+            <span>view on&nbsp;
+              {isMobile
+                ? <button className="tooltip" data-tip="Desktop only">
+                    <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
+                    <MousePointerClick size={16} strokeWidth={1.6} />
+                  </button>
+                : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}>
+                    <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
+                    <MousePointerClick size={16} strokeWidth={1.6} />
+                  </a>
+              }
+            </span>
+          </div>
+          {/* <button><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button>
+          <span className="text-center">view site on <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a></span> */}
         </div>
         <div className="w-7/12">
           <button onClick={() => setPhotoIdx((photoIdx + 1) % photos.length)}>
