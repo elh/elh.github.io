@@ -56,6 +56,14 @@ function Torus({ color }) {
   );
 }
 
+function Header({ text }) {
+  return (
+    <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
+      <h1 className="text-3xl font-bold uppercase">{text}</h1>
+    </header>
+  );
+}
+
 function Projects({ projects, iframed }) {
   const [showQuestions, setShowQuestions] = useState(false);
   const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
@@ -69,6 +77,7 @@ function Projects({ projects, iframed }) {
   }
   return (
     <div>
+      <Header text="> Projects" />
       <div>
         {/* Factor out into content file when I support html/markdown */}
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
@@ -115,33 +124,34 @@ function Home({ iframed }) {
 
   return (
     <div>
+      <Header text="Eugene L Huang" />
       {/* Factor out into content file when I support html/markdown */}
       {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
       <div className="flex">
         {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
-        <div className="w-5/12">
+        <div className="w-5/12 leading-relaxed">
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
             <li>^ loves <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
+            <div className="indent-4">
+              <span>-&nbsp;
+                {isMobile
+                  ? <button className="tooltip" data-tip="Desktop only">
+                      <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
+                      <MousePointerClick size={16} strokeWidth={1.6} />
+                    </button>
+                  : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}>
+                      <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
+                      <MousePointerClick size={16} strokeWidth={1.6} />
+                    </a>
+                }
+              </span>
+            </div>
             {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
             <li>^ shoots film</li>
             {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
             {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
-          <div className="mt-16 text-center">
-            <span>view on&nbsp;
-              {isMobile
-                ? <button className="tooltip" data-tip="Desktop only">
-                    <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
-                    <MousePointerClick size={16} strokeWidth={1.6} />
-                  </button>
-                : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}>
-                    <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
-                    <MousePointerClick size={16} strokeWidth={1.6} />
-                  </a>
-              }
-            </span>
-          </div>
           {/* <button><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button>
           <span className="text-center">view site on <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a></span> */}
         </div>
@@ -157,8 +167,11 @@ function Home({ iframed }) {
 
 function NotFound() {
   return (
-    <div className='flex'>
-      <span>∅ Page not found.</span>
+    <div>
+      <Header text="Eugene L Huang" />
+      <div className='flex'>
+        <span>∅ Page not found.</span>
+      </div>
     </div>
   );
 }
@@ -178,9 +191,6 @@ function App() {
         <div className="flex flex-wrap justify-center m-auto">
           <div className="max-w-[50rem] mx-4 mb-6">
             {/* <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} /> */}
-            <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
-              <a href={process.env.PUBLIC_URL} className="text-3xl font-bold uppercase">Eugene L Huang</a>
-            </header>
             <Routes>
               <Route path="/" element={<Home iframed={iframed} />} />
               <Route path="projects" element={<Projects projects={content.projects} iframed={iframed} />} />
