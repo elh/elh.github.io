@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
+import selfieImg from "./img/selfie.jpg";
 
 // note: use this to bootstrap project specific pager later
 /* eslint-disable no-unused-vars */
@@ -71,6 +72,30 @@ function Projects({ projects, iframed }) {
   );
 }
 
+function Home({ iframed }) {
+  const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
+
+  return (
+    <div>
+      {/* Factor out into content file when I support html/markdown */}
+      {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
+      <div className="flex mt-16">
+        <div className="w-5/12">
+          <ul>
+            <li>~ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
+            <li>~ loves <a href={process.env.PUBLIC_URL+`#/projects`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">side projects</a></li>
+            <li>~ invented the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">ePhone</a>™</li>
+            <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: add stuff -->'}&nbsp;&nbsp;&nbsp;</div>
+          </ul>
+        </div>
+        <div className="w-7/12">
+          <img src={selfieImg} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [content, setContent] = useState("");
   const [iframed, _] = useState(window.location !== window.parent.location);
@@ -84,11 +109,12 @@ function App() {
     <div className="flex flex-wrap h-screen">
       <div className="flex flex-wrap justify-center m-auto">
         <div className="max-w-[44rem] mx-4 mb-6">
-          <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} />
+          {/* <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} /> */}
           <header className="flex flex-wrap justify-between items-center mt-6 mb-4">
             <a href={process.env.PUBLIC_URL} className="text-3xl font-bold">{"Eugene L Huang".toUpperCase()}</a>
           </header>
-          <Projects projects={content.projects} iframed={iframed} />
+          <Home iframed={iframed} />
+          {/* <Projects projects={content.projects} iframed={iframed} /> */}
           {/* <div className="mt-14 chat chat-end">
             <div className="chat-image avatar">
               <div className="w-12 rounded-full">
@@ -99,13 +125,10 @@ function App() {
             <div className="chat-footer opacity-80">elh</div>
           </div> */}
           {/* <div className="my-6 text-center text-xl">⁂</div> */}
-          {/* Factor out into content file when I support html/markdown */}
-          {/* <div className="mt-4">I'm an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
-          {/* <div className="mt-8 text-sm text-center font-mono">{'<!-- TODO: add stuff -->'}</div> */}
-          <div className="my-10 flex flex-wrap space-x-2 justify-end">
-            <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={20} strokeWidth={2} /></a>
-            <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={20} strokeWidth={2} /></a>
-            <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={20} strokeWidth={2} /></a>
+          <div className="my-6 flex flex-wrap space-x-2 justify-end">
+            <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={20} strokeWidth={1.7} /></a>
+            <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={20} strokeWidth={1.7} /></a>
+            <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={20} strokeWidth={1.7} /></a>
           </div>
         </div>
       </div>
