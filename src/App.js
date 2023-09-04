@@ -1,28 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown'
+import React, { useState, useEffect, useRef } from 'react';
+// import ReactMarkdown from 'react-markdown'
 import { HashRouter, Route, Routes } from "react-router-dom"
 import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 // import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 import selfieImg from "./img/selfie.jpg";
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { AsciiRenderer } from '@react-three/drei'
 
 // note: use this to bootstrap project specific pager later
 /* eslint-disable no-unused-vars */
-function Markdown({ fileName }) {
-  const [markdown, setMarkdown] = useState("");
-  useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/${fileName}`)
-        .then(res => res.text())
-        .then(text => setMarkdown(text));
-  }, [fileName]);
+// function Markdown({ fileName }) {
+//   const [markdown, setMarkdown] = useState("");
+//   useEffect(() => {
+//     fetch(`${process.env.PUBLIC_URL}/${fileName}`)
+//         .then(res => res.text())
+//         .then(text => setMarkdown(text));
+//   }, [fileName]);
 
+//   return (
+//     <article class="prose prose-sm">
+//       <ReactMarkdown children={markdown}></ReactMarkdown>
+//     </article>
+//   );
+// }
+/* eslint-disable no-unused-vars */
+
+function TorusMesh() {
+  const ref = useRef()
+  const viewport = useThree((state) => state.viewport)
+  useFrame((state, delta) => (ref.current.rotation.x = ref.current.rotation.y += delta / 4))
   return (
-    <article class="prose prose-sm">
-      <ReactMarkdown children={markdown}></ReactMarkdown>
-    </article>
+    <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref}>
+      <torusGeometry args={[1.6, 0.1, 128, 32]} />
+      <meshStandardMaterial color="red" />
+    </mesh>
+  )
+}
+
+function Torus({ color }) {
+  return (
+    <div className="w-full h-full fixed top-0 left-0">
+      <Canvas>\
+        <color attach="background" args={['black']} />
+        <spotLight position={[1.5, 1.5, 1.5]} angle={2} penumbra={1} intensity={15} decay={1} />
+        <pointLight position={[-1.5, -1.5, -1.5]} distance={10} intensity={5} decay={1}/>
+        <TorusMesh />
+        <AsciiRenderer fgColor={color} bgColor="transparent" />
+      </Canvas>
+    </div>
   );
 }
-/* eslint-disable no-unused-vars */
 
 function Projects({ projects, iframed }) {
   const [showQuestions, setShowQuestions] = useState(false);
@@ -98,7 +126,8 @@ function Home({ iframed }) {
 
 function NotFound() {
   return (
-    <div className="">
+    <div className='flex'>
+      <Torus color="#a1a1a1" />
       <span>∅ Page not found.</span>
     </div>
   );
