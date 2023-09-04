@@ -83,7 +83,7 @@ function Projects({ projects, iframed }) {
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with personal projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       {projects && projects.groups.map((group, i) =>
-        <div className={i > 0 ? "mt-3" : "mt-6"}>
+        <div className={i > 0 ? "mt-5" : "mt-10"}>
           <div className='font-bold'><span className="text-xl">❧</span> {group.name.toUpperCase()}</div>
           {group.repos && group.repos.map((repo, j) =>
             <div>
@@ -124,12 +124,12 @@ function Home({ iframed }) {
 
   return (
     <div>
-      <Header text="Eugene L Huang" />
+      <Header text="Eugene Huang" />
       {/* Factor out into content file when I support html/markdown */}
       {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
       <div className="flex">
         {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
-        <div className="w-5/12 leading-relaxed">
+        <div className="w-5/12">
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
             <li>^ loves <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
@@ -168,7 +168,7 @@ function Home({ iframed }) {
 function NotFound() {
   return (
     <div>
-      <Header text="Eugene L Huang" />
+      <Header text="Eugene Huang" />
       <div className='flex'>
         <span>∅ Page not found.</span>
       </div>
@@ -189,7 +189,7 @@ function App() {
     <HashRouter>
       <div className="flex flex-wrap h-screen">
         <div className="flex flex-wrap justify-center m-auto">
-          <div className="max-w-[50rem] mx-4 mb-6">
+          <div className="max-w-[50rem] mx-4 mb-6 leading-relaxed">
             {/* <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} /> */}
             <Routes>
               <Route path="/" element={<Home iframed={iframed} />} />
