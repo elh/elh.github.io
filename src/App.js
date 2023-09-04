@@ -34,7 +34,7 @@ function TorusMesh() {
     ref.current.rotation.y = ref.current.rotation.y += delta / 10
   })
   return (
-    <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref}>
+    <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref} rotation={[-Math.PI / 4, -Math.PI / 4, 0]}>
       <torusGeometry args={[1.7, 0.15, 128, 32]} />
       <meshStandardMaterial color="red" />
     </mesh>
