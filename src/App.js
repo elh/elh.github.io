@@ -44,8 +44,8 @@ function TorusMesh() {
 
 function Torus({ color }) {
   return (
-    <div className="w-full h-full fixed top-0 left-0 -z-10">
-      <Canvas>\
+    <div className="w-full h-full fixed top-0 left-0 pointer-events-none -z-10">
+      <Canvas style={{'pointer-events': 'none'}}>\
         <color attach="background" args={['black']} />
         <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={40} decay={1} />
         <pointLight position={[-4, -4, -4]} distance={10} intensity={20} decay={1}/>
@@ -109,8 +109,8 @@ function Home({ iframed }) {
   const [photoIdx, setPhotoIdx] = useState(0);
 
   const photos = [
-    <img alt="Moody camera mirror selfie" src={selfieImg} />,
-    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} />
+    <img alt="Moody camera mirror selfie" src={selfieImg} className="relative -z-20" />,
+    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative -z-20" />
   ]
 
   return (
