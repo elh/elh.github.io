@@ -82,10 +82,10 @@ function Home({ iframed }) {
       <div className="flex">
         <div className="w-5/12">
           <ul>
-            <li>~ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>~ cranks <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
-            <li>~ invented the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a>™</li>
-            <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: add stuff -->'}&nbsp;&nbsp;&nbsp;</div>
+            <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
+            <li>^ loves a <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side project</a></li>
+            <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a>™</li>
+            {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
         </div>
         <div className="w-7/12">
@@ -117,10 +117,10 @@ function App() {
     <HashRouter>
       <div className="flex flex-wrap h-screen">
         <div className="flex flex-wrap justify-center m-auto">
-          <div className="max-w-[44rem] mx-4 mb-6">
+          <div className="max-w-[50rem] mx-4 mb-6">
             {/* <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} /> */}
             <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
-              <a href={process.env.PUBLIC_URL} className="text-3xl font-bold">{"Eugene L Huang".toUpperCase()}</a>
+              <a href={process.env.PUBLIC_URL} className="text-3xl font-bold uppercase">Eugene L Huang</a>
             </header>
             <Routes>
               <Route path="/" element={<Home iframed={iframed} />} />
