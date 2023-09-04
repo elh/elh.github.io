@@ -91,7 +91,7 @@
           {
             "repo": "advent-2022",
             "desc": "My complete 50-star 2022 Advent of Code in Clojure",
-            "q": "What is writing Clojure like? (I love Lisp)"
+            "q": "What is writing Clojure like? (I love Lisp \u2661)"
           },
           {
             "repo": "feynman-781",
@@ -103,6 +103,11 @@
       {
         "name": "Misc.",
         "repos": [
+          {
+            "repo": "elh.github.io",
+            "desc": "My personal website. You're looking at it!",
+            "q": "How will I fare without a designer?"
+          },
           {
             "repo": "ePhone",
             "desc": "Render an iframe on an iPhone model using three.js",
