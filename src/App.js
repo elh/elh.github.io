@@ -36,7 +36,7 @@ function TorusMesh() {
   })
   return (
     <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref} rotation={[-Math.PI / 4, -Math.PI / 4, 0]}>
-      <torusGeometry args={[1.7, 0.15, 128, 32]} />
+      <torusGeometry args={[1.8, 0.15, 128, 32]} />
       <meshStandardMaterial color="red" />
     </mesh>
   )
@@ -118,8 +118,8 @@ function Home({ iframed }) {
   const [photoIdx, setPhotoIdx] = useState(0);
 
   const photos = [
-    <img alt="Moody camera mirror selfie" src={selfieImg} className="relative -z-20" />,
-    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative -z-20" />
+    <img alt="Moody camera mirror selfie" src={selfieImg} className="relative" />,
+    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative" />
   ]
 
   return (
