@@ -94,6 +94,11 @@
             "q": "What is writing Clojure like? (I love Lisp \u2661)"
           },
           {
+            "repo": "mal-arkey",
+            "desc": "A tiny self-hosting \"Make a Lisp\" Lisp in Go",
+            "q": "How much of SICP do I remember?"
+          },
+          {
             "repo": "feynman-781",
             "desc": "Performant graph generator for Feynman diagrams* in Rust",
             "q": "What is writing Rust like?"
