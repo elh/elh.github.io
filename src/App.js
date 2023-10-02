@@ -133,8 +133,8 @@ function Home({ iframed }) {
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
             <li>^ loves <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
-            <div className="indent-4">
-              <span>-&nbsp;
+            <li><ul className="indent-4">
+              <li>-&nbsp;
                 {isMobile
                   ? <button className="tooltip" data-tip="Desktop only">
                       <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
@@ -145,8 +145,8 @@ function Home({ iframed }) {
                       <MousePointerClick size={16} strokeWidth={1.6} />
                     </a>
                 }
-              </span>
-            </div>
+              </li>
+            </ul></li>
             {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
             <li>^ shoots film</li>
             {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
@@ -206,9 +206,9 @@ function App() {
               <div className="chat-footer opacity-80">elh</div>
             </div> */}
             <div className="my-6 flex flex-wrap space-x-2 justify-end">
-              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Github size={20} strokeWidth={1.7} /></a>
-              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Linkedin size={20} strokeWidth={1.7} /></a>
-              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover"><Twitter size={20} strokeWidth={1.7} /></a>
+              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github"><Github size={20} strokeWidth={1.7} alt="Github" /></a>
+              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin"><Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" /></a>
+              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter"><Twitter size={20} strokeWidth={1.7} alt="Twitter" /></a>
             </div>
           </div>
         </div>
