@@ -31,7 +31,7 @@ projects:
       iframe_safe: true
     - repo: 0-0-0
       desc: Play chess against GPT
-      q: "Can GPT beat me at chess? (spoiler: it's bad)"
+      q: "Can GPT beat me at chess? A: gpt-3.5-turbo-instruct can now..."
       homepage: https://elh.github.io/0-0-0/
       iframe_safe: false
     - repo: make-evals
