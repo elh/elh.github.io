@@ -6,6 +6,9 @@ projects:
     - repo: dignum
       desc: REST API generator for XTDB w/ schema-on-write
       q: How can app-level schema be used in a schemaless graph db?
+    - repo: xtbb
+      desc: XTDB querying CLI
+      q: How does Clojure scripting with Babashka work?
     - repos: [bitempura, bitempura-viz]
       desc: Toy bitemporal key-value db + visualizer
       q: How is bitemporality implemented?
