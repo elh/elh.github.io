@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 // import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 import selfieImg from "./img/selfie.jpg";
-import lowerHateImg from "./img/lower_hate.jpg";
+// import lowerHateImg from "./img/lower_hate.jpg";
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AsciiRenderer } from '@react-three/drei'
 
@@ -119,7 +119,7 @@ function Home({ iframed }) {
 
   const photos = [
     <img alt="Moody camera mirror selfie" src={selfieImg} className="relative" />,
-    <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative" />
+    // <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative" />
   ]
 
   return (
@@ -132,8 +132,8 @@ function Home({ iframed }) {
         <div className="w-5/12">
           <ul>
             <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>^ loves <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
-            <li><ul className="indent-4">
+            <li>^ <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">hacks</a> for fun</li>
+            {/* <li><ul className="indent-4">
               <li>-&nbsp;
                 {isMobile
                   ? <button className="tooltip" data-tip="Desktop only">
@@ -146,9 +146,9 @@ function Home({ iframed }) {
                     </a>
                 }
               </li>
-            </ul></li>
+            </ul></li> */}
             {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
-            <li>^ shoots film</li>
+            <li>^ loves a <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
             {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
             {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
@@ -156,9 +156,9 @@ function Home({ iframed }) {
           <span className="text-center">view site on <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a></span> */}
         </div>
         <div className="w-7/12">
-          <button onClick={() => setPhotoIdx((photoIdx + 1) % photos.length)}>
+          {/* <button onClick={() => setPhotoIdx((photoIdx + 1) % photos.length)}> */}
             {photos[photoIdx]}
-          </button>
+          {/* </button> */}
         </div>
       </div>
     </div>
