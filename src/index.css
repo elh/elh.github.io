@@ -30,3 +30,23 @@ svg {
 .pixelated {
     image-rendering: pixelated;
 }
+
+ul li:before
+{
+    content: '❧';
+    margin-right: 0.3em;
+
+    /* from text-lg */
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+}
+
+.project-header:before
+{
+    content: '❧';
+    margin-right: 0.3em;
+
+    /* from text-xl */
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+}

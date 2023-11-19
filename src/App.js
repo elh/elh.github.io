@@ -45,7 +45,7 @@ function TorusMesh() {
 function Torus({ color }) {
   return (
     <div className="w-full h-full fixed top-0 left-0 pointer-events-none -z-10">
-      <Canvas style={{'pointer-events': 'none'}}>\
+      <Canvas>\
         <color attach="background" args={['black']} />
         <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={40} decay={1} />
         <pointLight position={[-4, -4, -4]} distance={10} intensity={20} decay={1}/>
@@ -77,14 +77,14 @@ function Projects({ projects, iframed }) {
   }
   return (
     <div>
-      <Header text="> Side Projects" />
+      <Header text="Side Projects" />
       <div>
         {/* Factor out into content file when I support html/markdown */}
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with kooky pet projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       {projects && projects.groups.map((group, i) =>
         <div className={i > 0 ? "mt-5" : "mt-10"}>
-          <div className='font-bold'><span className="text-xl">❧</span> {group.name.toUpperCase()}</div>
+          <div className='font-bold project-header'>{group.name.toUpperCase()}</div>
           {group.repos && group.repos.map((repo, j) =>
             <div>
               { repo.repos
@@ -126,13 +126,13 @@ function Home({ iframed }) {
     <div>
       <Header text="Eugene Huang" />
       {/* Factor out into content file when I support html/markdown */}
-      {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
+      {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
       <div className="flex">
         {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
         <div className="w-5/12">
           <ul>
-            <li>^ is an <a href={`https://goforward.com/technology`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>^ <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">hacks</a> for fun</li>
+            <li>is an <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
+            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
             {/* <li><ul className="indent-4">
               <li>-&nbsp;
                 {isMobile
@@ -148,7 +148,7 @@ function Home({ iframed }) {
               </li>
             </ul></li> */}
             {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
-            <li>^ loves a <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
+            <li>loves a good <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
             {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
             {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
           </ul>
@@ -179,10 +179,29 @@ function NotFound() {
 function App() {
   const [content, setContent] = useState("");
   const [iframed, _] = useState(window.location !== window.parent.location);
+  const [onHomePage, setOnHomePage] = useState(true);
+
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/content.json`)
         .then(res => res.text())
         .then(text => setContent(JSON.parse(text)));
+  }, []);
+
+  useEffect(() => {
+    function checkPath() {
+      if (window.location.hash === '#/' || window.location.hash === '') {
+        setOnHomePage(true);
+      } else {
+        setOnHomePage(false);
+      }
+    }
+    checkPath();
+
+    window.addEventListener('hashchange', checkPath);
+
+    return () => {
+      window.removeEventListener('hashchange', checkPath);
+    };
   }, []);
 
   return (
@@ -206,6 +225,9 @@ function App() {
               <div className="chat-footer opacity-80">elh</div>
             </div> */}
             <div className="my-6 flex flex-wrap space-x-2 justify-end">
+              { onHomePage ? null :
+                <a href="" rel="noreferrer" className="mx-2" aria-label="Home">home</a>
+              }
               <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github"><Github size={20} strokeWidth={1.7} alt="Github" /></a>
               <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin"><Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" /></a>
               <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter"><Twitter size={20} strokeWidth={1.7} alt="Twitter" /></a>
