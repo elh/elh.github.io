@@ -94,6 +94,11 @@
             "q": "How is eventual consistency implemented?"
           },
           {
+            "repo": "advent-2023",
+            "desc": "My complete 50-star 2023 Advent of Code in Python w/ a mini blog",
+            "q": "How much faster can I code in Python than Clojure? A: a lot"
+          },
+          {
             "repo": "advent-2022",
             "desc": "My complete 50-star 2022 Advent of Code in Clojure",
             "q": "What is writing Clojure like? (I love Lisp \u2661)"
