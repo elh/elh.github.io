@@ -90,8 +90,13 @@
         "repos": [
           {
             "repo": "gossip-glomers",
-            "desc": "My complete Gossip Glomers solutions in Clojure",
+            "desc": "My complete Gossip Glomers solutions in Clojure. A distributed systems challenge.",
             "q": "How is eventual consistency implemented?"
+          },
+          {
+            "repo": "1brc-go",
+            "desc": "My performant 1BRC challenge solution in Go. A data processing challenge.",
+            "q": "How fast can you read and aggregate 1B lines of text?"
           },
           {
             "repo": "advent-2023",
