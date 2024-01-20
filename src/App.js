@@ -1,31 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import ReactMarkdown from 'react-markdown'
 import { HashRouter, Route, Routes } from "react-router-dom"
 import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
-// import coverImg from "./img/cover.jpeg"; // h/t https://unsplash.com/photos/KgOpmX1STew
 import selfieImg from "./img/selfie.jpg";
-// import lowerHateImg from "./img/lower_hate.jpg";
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AsciiRenderer } from '@react-three/drei'
-
-// note: use this to bootstrap project specific pager later
-/* eslint-disable no-unused-vars */
-// function Markdown({ fileName }) {
-//   const [markdown, setMarkdown] = useState("");
-//   useEffect(() => {
-//     fetch(`${process.env.PUBLIC_URL}/${fileName}`)
-//         .then(res => res.text())
-//         .then(text => setMarkdown(text));
-//   }, [fileName]);
-
-//   return (
-//     <article class="prose prose-sm">
-//       <ReactMarkdown children={markdown}></ReactMarkdown>
-//     </article>
-//   );
-// }
-/* eslint-disable no-unused-vars */
 
 function TorusMesh() {
   const ref = useRef()
@@ -44,7 +23,7 @@ function TorusMesh() {
 
 function Torus({ color }) {
   return (
-    <div className="w-full h-full fixed top-0 left-0 pointer-events-none -z-10">
+    <div className="w-full h-[90%] absolute top-0 left-0 pointer-events-none -z-10">
       <Canvas>\
         <color attach="background" args={['black']} />
         <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={40} decay={1} />
@@ -59,14 +38,22 @@ function Torus({ color }) {
 function Header({ text }) {
   return (
     <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
-      <h1 className="text-3xl font-bold uppercase">{text}</h1>
+      <h1 className="text-4xl font-bold uppercase">{text}</h1>
+    </header>
+  );
+}
+
+function SubHeader({ text }) {
+  return (
+    <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
+      <h2 className="text-3xl uppercase">{text}</h2>
     </header>
   );
 }
 
 function Projects({ projects, iframed }) {
   const [showQuestions, setShowQuestions] = useState(false);
-  const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
+  const ePhoneID = Math.floor(Math.random() * 10001); // random id to add to ePhone url
 
   const toggleShowQuestions = () => {
     setShowQuestions(!showQuestions);
@@ -77,7 +64,7 @@ function Projects({ projects, iframed }) {
   }
   return (
     <div>
-      <Header text="Side Projects" />
+      <SubHeader text="Side Projects" />
       <div>
         {/* Factor out into content file when I support html/markdown */}
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with kooky pet projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
@@ -98,7 +85,7 @@ function Projects({ projects, iframed }) {
               }
               { repo.homepage &&
                 <span>
-                  &nbsp;(<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link">site</a>)
+                  &nbsp;(<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link">site ↗</a>)
                 </span>
               }
               { showQuestions
@@ -113,54 +100,34 @@ function Projects({ projects, iframed }) {
   );
 }
 
-function Home({ iframed }) {
-  const [ePhoneID, _] = useState(Math.floor(Math.random() * 10001)); // random id to add to ePhone url
-  const [photoIdx, setPhotoIdx] = useState(0);
-
-  const photos = [
-    <img alt="Moody camera mirror selfie" src={selfieImg} className="relative" />,
-    // <img alt="'Lower Hate' poster on Lower Haight" src={lowerHateImg} className="relative" />
-  ]
-
+function Home({ iframed, projects, onHomePage }) {
   return (
-    <div>
-      <Header text="Eugene Huang" />
-      {/* Factor out into content file when I support html/markdown */}
-      {/* <div className="mt-8 indent-8">is an engineer at <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link">Forward</a> working on radically rebuilding healthcare in software and hardware. Previously, I was building a new data management product at Box and studied EECS at UC Berkeley. :)</div> */}
-      <div className="flex">
+    <div className="mb-20">
+      <div className="h-screen flex flex-col justify-center">
         {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
-        <div className="w-5/12">
-          <ul>
-            <li>is an <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
-            {/* <li><ul className="indent-4">
-              <li>-&nbsp;
-                {isMobile
-                  ? <button className="tooltip" data-tip="Desktop only">
-                      <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
-                      <MousePointerClick size={16} strokeWidth={1.6} />
-                    </button>
-                  : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}>
-                      <span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">ePhone</span>
-                      <MousePointerClick size={16} strokeWidth={1.6} />
-                    </a>
-                }
-              </li>
-            </ul></li> */}
-            {/* <li>^ made the <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone™</a></li> */}
-            <li>loves a good <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
-            {/* <li>^ shoots <a href={`"TODO"`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">film</a></li> */}
-            {/* <div className="mt-12 text-xs text-center font-mono">{'<!-- TODO: write -->'}</div> */}
-          </ul>
-          {/* <button><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button>
-          <span className="text-center">view site on <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID} rel="noreferrer" className="link decoration-2">ePhone</a></span> */}
+        <Header text="Eugene Huang" />
+        <div className="flex">
+          <div className="w-5/12">
+            <ul>
+              <li>is an <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
+              <li>hacks on side projects</li>
+              <li>loves a good <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
+            </ul>
+          </div>
+          <div className="w-7/12">
+            <img alt="A grainy camera mirror selfie" src={selfieImg} className="relative" />
+          </div>
         </div>
-        <div className="w-7/12">
-          {/* <button onClick={() => setPhotoIdx((photoIdx + 1) % photos.length)}> */}
-            {photos[photoIdx]}
-          {/* </button> */}
+        <div className="my-6 flex flex-wrap space-x-2 justify-end">
+          { onHomePage ? null :
+            <a href="" rel="noreferrer" className="mx-2" aria-label="Home">home</a>
+          }
+          <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github"><Github size={20} strokeWidth={1.7} alt="Github" /></a>
+          <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin"><Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" /></a>
+          <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter"><Twitter size={20} strokeWidth={1.7} alt="Twitter" /></a>
         </div>
       </div>
+      <Projects projects={projects} iframed={iframed} />
     </div>
   );
 }
@@ -209,29 +176,10 @@ function App() {
       <div className="flex flex-wrap h-screen">
         <div className="flex flex-wrap justify-center m-auto">
           <div className="max-w-[50rem] mx-4 mb-6 leading-relaxed">
-            {/* <img className="invert-0 dark:invert pixelated" alt="" src={coverImg} /> */}
             <Routes>
-              <Route path="/" element={<Home iframed={iframed} />} />
-              <Route path="projects" element={<Projects projects={content.projects} iframed={iframed} />} />
+              <Route path="/" element={<Home iframed={iframed} projects={content.projects} onHomePage={onHomePage} />} />
               <Route path="/*" element={<NotFound/>} />
             </Routes>
-            {/* <div className="mt-14 chat chat-end">
-              <div className="chat-image avatar">
-                <div className="w-12 rounded-full">
-                  <img src={avatarImg} />
-                </div>
-              </div>
-              <div className="chat-bubble">Hi! I'm an engineer in SF working in healthtech :)</div>
-              <div className="chat-footer opacity-80">elh</div>
-            </div> */}
-            <div className="my-6 flex flex-wrap space-x-2 justify-end">
-              { onHomePage ? null :
-                <a href="" rel="noreferrer" className="mx-2" aria-label="Home">home</a>
-              }
-              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github"><Github size={20} strokeWidth={1.7} alt="Github" /></a>
-              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin"><Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" /></a>
-              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter"><Twitter size={20} strokeWidth={1.7} alt="Twitter" /></a>
-            </div>
           </div>
         </div>
       </div>
