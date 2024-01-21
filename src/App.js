@@ -145,7 +145,7 @@ function NotFound() {
 
 function App() {
   const [content, setContent] = useState("");
-  const [iframed, _] = useState(window.location !== window.parent.location);
+  const [iframed] = useState(window.location !== window.parent.location);
   const [onHomePage, setOnHomePage] = useState(true);
 
   useEffect(() => {
