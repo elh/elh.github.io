@@ -1,97 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Route, Routes } from "react-router-dom"
-import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
-import {isMobile} from 'react-device-detect';
-import selfieImg from "./img/selfie.jpg";
-import Torus from './Torus';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
-function Header({ text }) {
-  return (
-    <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
-      <h1 className="text-4xl font-bold uppercase">{text}</h1>
-    </header>
-  );
-}
-
-function Projects({ projects, iframed }) {
-  const [showQuestions, setShowQuestions] = useState(false);
-  const ePhoneID = Math.floor(Math.random() * 10001); // random id to add to ePhone url
-
-  const toggleShowQuestions = () => {
-    setShowQuestions(!showQuestions);
-  };
-
-  if (!projects) {
-    return null;
-  }
-  return (
-    <div>
-      <Header text="Side Projects" />
-      <div>
-        Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with kooky pet projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
-      </div>
-      {projects && projects.groups.map((group, i) =>
-        <div className={i > 0 ? "mt-5" : "mt-10"}>
-          <div className='font-bold project-header'>{group.name.toUpperCase()}</div>
-          {group.repos && group.repos.map((repo, j) =>
-            <div>
-              { repo.repos
-                ? <span>
-                  <span className=""></span>
-                  {repo.repos.map((repo, k) =>
-                    <span className=""><a href={`https://github.com/elh/`+repo} target={iframed ? "_blank": ""} rel="noreferrer" className="link">{repo}</a>{k > 0 ? "": ","}&nbsp;</span>
-                  )}
-                  </span>
-                : <span className=""><a href={`https://github.com/elh/`+repo.repo} target={iframed ? "_blank": ""} rel="noreferrer" className="link">{repo.repo}</a></span>
-              }
-              { repo.homepage &&
-                <span>
-                  &nbsp;(<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link text-emerald-600">site ↗</a>)
-                </span>
-              }
-              { showQuestions
-                ? <span> - {repo.q}</span>
-                : <span> - {repo.desc}</span>
-              }
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function Home({ iframed }) {
-  return (
-    <div>
-      <Header text="Eugene Huang" />
-      <div className="flex">
-        {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
-        <div className="w-5/12">
-          <ul>
-            <li>is an <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">engineer in SF</a></li>
-            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">side projects</a></li>
-            <li>loves a good <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">film</a></li>
-          </ul>
-        </div>
-        <div className="w-7/12">
-          <img src={selfieImg} className="relative" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NotFound() {
-  return (
-    <div>
-      <Header text="Eugene Huang" />
-      <div className='flex'>
-        <span>∅ Page not found.</span>
-      </div>
-    </div>
-  );
-}
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import NotFound from './pages/NotFound';
 
 function App() {
   const [content, setContent] = useState("");
@@ -106,11 +19,7 @@ function App() {
 
   useEffect(() => {
     function checkPath() {
-      if (window.location.hash === '#/' || window.location.hash === '') {
-        setOnHomePage(true);
-      } else {
-        setOnHomePage(false);
-      }
+      setOnHomePage(window.location.hash === '#/' || window.location.hash === '');
     }
     checkPath();
 
