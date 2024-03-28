@@ -1,39 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter, Route, Routes } from "react-router-dom"
 import { Github, Linkedin, Twitter, MousePointerClick } from 'lucide-react';
 import {isMobile} from 'react-device-detect';
 import selfieImg from "./img/selfie.jpg";
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { AsciiRenderer } from '@react-three/drei'
-
-function TorusMesh() {
-  const ref = useRef()
-  const viewport = useThree((state) => state.viewport)
-  useFrame((state, delta) => {
-    ref.current.rotation.x = ref.current.rotation.x += delta / 8
-    ref.current.rotation.y = ref.current.rotation.y += delta / 16
-  })
-  return (
-    <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref} rotation={[-Math.PI / 4, -Math.PI / 4, 0]}>
-      <torusGeometry args={[1.8, 0.15, 128, 32]} />
-      <meshStandardMaterial color="red" />
-    </mesh>
-  )
-}
-
-function Torus({ color }) {
-  return (
-    <div className="w-full h-full fixed top-0 left-0 pointer-events-none select-none -z-10">
-      <Canvas>\
-        <color attach="background" args={['black']} />
-        <spotLight position={[4, 4, 4]} angle={2} penumbra={1} intensity={40} decay={1} />
-        <pointLight position={[-4, -4, -4]} distance={10} intensity={20} decay={1}/>
-        <TorusMesh />
-        <AsciiRenderer fgColor={color} bgColor="transparent" resolution={0.2} />
-      </Canvas>
-    </div>
-  );
-}
+import Torus from './Torus';
 
 function Header({ text }) {
   return (
@@ -58,7 +28,6 @@ function Projects({ projects, iframed }) {
     <div>
       <Header text="Side Projects" />
       <div>
-        {/* Factor out into content file when I support html/markdown */}
         Since <a href={"https://elh.github.io/gh-organizer/#/owners/elh/repo-timeline"} rel="noreferrer" className="link">2022</a>, I started tinkering with kooky pet projects as a resolution to share my thoughts more. I use these weeklong spikes to <button className="link decoration-2" onClick={toggleShowQuestions}>learn-by-doing<MousePointerClick size={16} strokeWidth={1.6} /></button> and be {isMobile ? <button className="tooltip" data-tip="Desktop only"><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></button> : <a href={"https://elh.github.io/ePhone?url=https://elh.github.io/&id=" + ePhoneID}><span className="underline decoration-wavy underline-offset-0 decoration-2 decoration-emerald-600">creative</span><MousePointerClick size={16} strokeWidth={1.6} /></a>}. All projects are functional MVPs, documented, and runnable. Check them out!
       </div>
       {projects && projects.groups.map((group, i) =>
@@ -166,9 +135,15 @@ function App() {
               { onHomePage ? null :
                 <a href="" rel="noreferrer" className="mx-2" aria-label="Home">home</a>
               }
-              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github"><Github size={20} strokeWidth={1.7} alt="Github" /></a>
-              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin"><Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" /></a>
-              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter"><Twitter size={20} strokeWidth={1.7} alt="Twitter" /></a>
+              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github">
+                <Github size={20} strokeWidth={1.7} alt="Github" />
+              </a>
+              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin">
+                <Linkedin size={20} strokeWidth={1.7} alt="LinkedIn" />
+              </a>
+              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter">
+                <Twitter size={20} strokeWidth={1.7} alt="Twitter" />
+              </a>
             </div>
           </div>
         </div>
