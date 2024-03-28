@@ -1,15 +1,18 @@
 import React from 'react';
 
 import Header from '../components/Header';
+import PageLayout from '../components/PageLayout';
 
-function NotFound() {
+function NotFound({iframed}) {
   return (
-    <div>
-      <Header text="Eugene Huang" />
-      <div className='flex'>
-        <span>∅ Page not found.</span>
+    <PageLayout iframed={iframed}>
+      <div>
+        <Header text="Eugene Huang" />
+        <div className='flex'>
+          <span>∅ Page not found.</span>
+        </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 
