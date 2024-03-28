@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2c2b4bdd.css",
-    "main.js": "/static/js/main.cfcffc41.js",
+    "main.js": "/static/js/main.8b271f0b.js",
     "static/js/787.63e1ddc3.chunk.js": "/static/js/787.63e1ddc3.chunk.js",
     "static/media/selfie.jpg": "/static/media/selfie.b4039841b205cdf12904.jpg",
     "static/media/perfect_days.png": "/static/media/perfect_days.77e429056e1c57af53f3.png",
@@ -17,11 +17,11 @@
     "static/media/chungking_express.jpg": "/static/media/chungking_express.78a4e948cab88fc416dc.jpg",
     "index.html": "/index.html",
     "main.2c2b4bdd.css.map": "/static/css/main.2c2b4bdd.css.map",
-    "main.cfcffc41.js.map": "/static/js/main.cfcffc41.js.map",
+    "main.8b271f0b.js.map": "/static/js/main.8b271f0b.js.map",
     "787.63e1ddc3.chunk.js.map": "/static/js/787.63e1ddc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2c2b4bdd.css",
-    "static/js/main.cfcffc41.js"
+    "static/js/main.8b271f0b.js"
   ]
 }
