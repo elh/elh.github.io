@@ -10,8 +10,8 @@ function TorusMesh() {
   const ref = useRef()
   const viewport = useThree((state) => state.viewport)
   useFrame((state, delta) => {
-    ref.current.rotation.x = ref.current.rotation.x += delta / 5
-    ref.current.rotation.y = ref.current.rotation.y += delta / 10
+    ref.current.rotation.x = ref.current.rotation.x += delta / 8
+    ref.current.rotation.y = ref.current.rotation.y += delta / 16
   })
   return (
     <mesh scale={Math.min(viewport.width, viewport.height) / 5} ref={ref} rotation={[-Math.PI / 4, -Math.PI / 4, 0]}>
@@ -38,7 +38,7 @@ function Torus({ color }) {
 function Header({ text }) {
   return (
     <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
-      <h1 className="text-3xl font-bold uppercase">{text}</h1>
+      <h1 className="text-4xl font-bold uppercase">{text}</h1>
     </header>
   );
 }
@@ -77,7 +77,7 @@ function Projects({ projects, iframed }) {
               }
               { repo.homepage &&
                 <span>
-                  &nbsp;(<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link">site</a>)
+                  &nbsp;(<a href={repo.homepage} target={iframed && !repo.iframe_safe ? "_blank": ""} rel="noreferrer" className="link text-emerald-600">site ↗</a>)
                 </span>
               }
               { showQuestions
