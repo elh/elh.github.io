@@ -22,6 +22,18 @@ html {
     }
 }
 
+@media screen and (max-width: 640px) {
+    .nomobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .mobile-header {
+        font-size: 300%;
+    }
+}
+
 @font-face {
     font-family: 'fleurondingbats';
     src: url('fonts/fleurondingbats-webfont.woff2') format('woff2'),
