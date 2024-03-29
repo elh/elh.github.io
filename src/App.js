@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   const [content, setContent] = useState("");
-  const [iframed, _] = useState(window.location !== window.parent.location);
+  const iframed = window.location !== window.parent.location;
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/content.json`)
