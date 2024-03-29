@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.5785bf12.css",
-    "main.js": "/static/js/main.00acdc67.js",
+    "main.css": "/static/css/main.867b4c7e.css",
+    "main.js": "/static/js/main.7a6efe3d.js",
     "static/js/787.63e1ddc3.chunk.js": "/static/js/787.63e1ddc3.chunk.js",
     "static/media/selfie.jpg": "/static/media/selfie.b4039841b205cdf12904.jpg",
+    "static/media/elh.png": "/static/media/elh.0b6a163d682d63c77cef.png",
+    "static/media/carepod.png": "/static/media/carepod.1d06cbf563d4b041a8eb.png",
     "static/media/perfect_days.png": "/static/media/perfect_days.77e429056e1c57af53f3.png",
     "static/media/fleuronmixed-webfont.woff": "/static/media/fleuronmixed-webfont.02063a756da5945c3be6.woff",
     "static/media/fleuronmixed-webfont.woff2": "/static/media/fleuronmixed-webfont.0cccb4326c5603dc0be0.woff2",
@@ -16,12 +18,12 @@
     "static/media/mishima.jpg": "/static/media/mishima.d883b18fd299521a315d.jpg",
     "static/media/chungking_express.jpg": "/static/media/chungking_express.78a4e948cab88fc416dc.jpg",
     "index.html": "/index.html",
-    "main.5785bf12.css.map": "/static/css/main.5785bf12.css.map",
-    "main.00acdc67.js.map": "/static/js/main.00acdc67.js.map",
+    "main.867b4c7e.css.map": "/static/css/main.867b4c7e.css.map",
+    "main.7a6efe3d.js.map": "/static/js/main.7a6efe3d.js.map",
     "787.63e1ddc3.chunk.js.map": "/static/js/787.63e1ddc3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5785bf12.css",
-    "static/js/main.00acdc67.js"
+    "static/css/main.867b4c7e.css",
+    "static/js/main.7a6efe3d.js"
   ]
 }
