@@ -88,7 +88,7 @@ function Home({ iframed }) {
           <a className="peer" href={`https://techcrunch.com/2023/11/15/forward-health-carepod-ai-doctor/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Forward CarePod">
             <Image src={carepod} alt="Forward CarePod" className="nomobile" />
           </a>
-          <OnPeerHover className="absolute top-20 -left-60">
+          <OnPeerHover className="absolute top-20 -left-60 pointer-events-none">
             <span className="block text-red-500 font-bold text-3xl w-96">"CarePods, a self-contained, AI-powered doctor's office"</span>
           </OnPeerHover>
         </Absolute>
@@ -125,7 +125,7 @@ function Home({ iframed }) {
           <a className="peer" href={`https://www.instagram.com/eugeually/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Instagram">
             <Image src={perfectDays} alt="Perfect Days" className="nomobile" />
           </a>
-          <OnPeerHover className="absolute mt-6">
+          <OnPeerHover className="absolute mt-6 pointer-events-none">
             <span className="block uppercase text-red-500 font-bold text-4xl w-96">Photog</span>
             <span className="block text-red-500 w-96">w/ Hirayama's Olympus Mju-1</span>
           </OnPeerHover>
@@ -135,7 +135,7 @@ function Home({ iframed }) {
           <a className="peer" href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Github">
             <Image src={elh} alt="Eugene" className="nomobile" />
           </a>
-          <OnPeerHover className="absolute -top-16 left-16">
+          <OnPeerHover className="absolute -top-16 left-16 pointer-events-none">
             <span className="block whitespace-nowrap text-red-500 font-mono text-4xl">$code</span>
           </OnPeerHover>
         </Absolute>
