@@ -1,5 +1,4 @@
-import React from 'react';
-import {isMobile} from 'react-device-detect';
+import React, { useState } from 'react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 import selfieImg from "../img/selfie.jpg";
@@ -10,14 +9,13 @@ import theMatrix from "../img/the_matrix.jpg";
 import perfectDays from "../img/perfect_days.png";
 import carepod from "../img/carepod.png";
 import elh from "../img/elh.png";
-import Torus from '../components/Torus';
 
-function Absolute({ children, style, className }) {
+function Absolute({ children, style, className, onMouseEnter, onMouseLeave }) {
   if (className === undefined) {
     className = "";
   }
   return (
-    <div className={`absolute ${className}`} style={style}>
+    <div className={`absolute ${className}`} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {children}
     </div>
   );
@@ -44,10 +42,12 @@ function OnPeerHover({ children, className }) {
 }
 
 function Home({ iframed }) {
+  const [letterboxdHovered, setLetterboxdHovered] = useState(false);
+
   return (
     <div className='px-6'>
       <div className='relative max-w-screen-md mx-auto'>
-        {!isMobile && <Torus color="#b0b0b0" />} {/* no 3D on mobile */}
+        {/* {!isMobile && <Torus color="#b0b0b0" />} no 3D on mobile */}
 
         <div className="mt-8 flex flex-wrap space-x-2 justify-end">
           <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github">
@@ -77,10 +77,10 @@ function Home({ iframed }) {
             </h1>
           </header>
           <ul className="ml-8">
-            <li>makes <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2 hover:text-red-500">crazy healthtech</a> @ Forward in SF</li>
-            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2 hover:text-red-500">pet projects</a> at night</li>
-            <li>devoutly logs movies on <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2 hover:text-red-500">Letterboxd</a></li>
-            <li>wants you to support the <a href={"https://roxie.com/"} rel="noreferrer" className="link decoration-2 hover:text-red-500">Roxie Theater</a></li>
+            <li>makes <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">crazy healthtech</a> @ Forward in SF</li>
+            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">pet projects</a> at night</li>
+            <li>devoutly logs movies on <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">Letterboxd</a></li>
+            <li>wants you to support the <a href={"https://roxie.com/"} rel="noreferrer" className="link decoration-2">Roxie Theater</a></li>
           </ul>
         </Absolute>
 
@@ -88,8 +88,8 @@ function Home({ iframed }) {
           <a className="peer" href={`https://techcrunch.com/2023/11/15/forward-health-carepod-ai-doctor/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Forward CarePod">
             <Image src={carepod} alt="Forward CarePod" className="nomobile" />
           </a>
-          <OnPeerHover className="absolute top-20 -left-60 pointer-events-none">
-            <span className="block text-red-500 font-bold text-3xl w-96">"CarePods, a self-contained, AI-powered doctor's office"</span>
+          <OnPeerHover className="absolute top-24 -left-36 pointer-events-none">
+            <span className="block text-red-500 font-bold text-xl w-60 font-serif">"CarePods, a self-contained, AI-powered doctor's office"</span>
           </OnPeerHover>
         </Absolute>
 
@@ -99,23 +99,23 @@ function Home({ iframed }) {
           <img src={selfieImg} alt='Eugene'/>
         </Absolute>
 
-        <Absolute style={{top: 330, left:10, width:"14%"}}>
+        <Absolute style={{top: 330, left:10, width:"14%"}} onMouseEnter={() => setLetterboxdHovered(true)} onMouseLeave={() => setLetterboxdHovered(false)}>
           <a className='block' href={`https://letterboxd.com/film/chungking-express/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Letterboxd - Chungking Express">
             <Image src={chungkingExpress} alt="Chungking Express" className="z-40 nomobile" />
           </a>
         </Absolute>
-        <Absolute style={{top: 280, left:110, width:"14%"}}>
+        <Absolute style={{top: 280, left:110, width:"14%"}} onMouseEnter={() => setLetterboxdHovered(true)} onMouseLeave={() => setLetterboxdHovered(false)}>
           <a className='block' href={`https://letterboxd.com/film/mishima-a-life-in-four-chapters/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Letterboxd - Mishima: A Life in Four Chapters">
             <Image src={mishima} alt="Mishima: A Life in Four Chapters" className="z-30 nomobile" />
           </a>
         </Absolute>
-        <Absolute style={{top: 355, left:200, width:"14%"}}>
+        <Absolute style={{top: 355, left:200, width:"14%"}} onMouseEnter={() => setLetterboxdHovered(true)} onMouseLeave={() => setLetterboxdHovered(false)}>
           <a className='block' href={`https://letterboxd.com/film/the-matrix/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Letterboxd - The Matrix">
             <Image src={theMatrix} alt="The Matrix" className="z-20 nomobile" />
           </a>
-          <span className="text-sm flex mt-2 justify-center nomobile">^ My Top 4</span>
+          {letterboxdHovered && <span className="flex mt-2 justify-center font-bold text-red-500">My Top 4</span>}
         </Absolute>
-        <Absolute style={{top: 300, left:285, width:"14%"}}>
+        <Absolute style={{top: 300, left:285, width:"14%"}} onMouseEnter={() => setLetterboxdHovered(true)} onMouseLeave={() => setLetterboxdHovered(false)}>
           <a className='block' href={`https://letterboxd.com/film/before-sunset/`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Letterboxd - Before Sunset">
             <Image src={beforeSunset} alt="Before Sunset" className="z-10 nomobile" />
           </a>
@@ -126,8 +126,8 @@ function Home({ iframed }) {
             <Image src={perfectDays} alt="Perfect Days" className="nomobile" />
           </a>
           <OnPeerHover className="absolute mt-6 pointer-events-none">
-            <span className="block uppercase text-red-500 font-bold text-4xl w-96">Photog</span>
-            <span className="block text-red-500 w-96">w/ Hirayama's Olympus Mju-1</span>
+            <span className="block text-red-500 font-bold text-xl">Photos</span>
+            <span className="block text-red-500 text-sm italic">Olympus Mju-1</span>
           </OnPeerHover>
         </Absolute>
 
@@ -135,8 +135,8 @@ function Home({ iframed }) {
           <a className="peer" href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" aria-label="Github">
             <Image src={elh} alt="Eugene" className="nomobile" />
           </a>
-          <OnPeerHover className="absolute -top-16 left-16 pointer-events-none">
-            <span className="block whitespace-nowrap text-red-500 font-mono text-4xl">$code</span>
+          <OnPeerHover className="absolute -top-12 pointer-events-none">
+            <span className="block whitespace-nowrap text-red-500 font-bold text-xl">coding</span>
           </OnPeerHover>
         </Absolute>
       </div>
