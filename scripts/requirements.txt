@@ -1,2 +1,2 @@
 PyGithub == 1.59.1
-PyYAML == 6.0
+PyYAML == 5.3 # later versions error. see https://github.com/yaml/pyyaml/issues/601
