@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
 import Header from '../components/Header';
 import selfieImg from "../img/selfie.jpg";
@@ -54,7 +54,7 @@ function Home({ iframed }) {
 
         {/* Absolute positioning */}
         <Absolute style={{top: 30}}>
-          <header className="flex flex-wrap justify-between items-center mt-6 mb-4">
+          <header className="flex flex-wrap justify-between items-center mt-6 mb-8">
             <h1 className="text-6xl uppercase mobile-header">
               <span className='fleuronregular'>E</span>
               <span className='fleuronmixed'>u</span>
@@ -67,12 +67,25 @@ function Home({ iframed }) {
               <span className='fleuronmixed'>g</span>
             </h1>
           </header>
-          <ul className="ml-8">
-            <li>makes <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">crazy healthtech</a> @ Forward in SF</li>
-            <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">pet projects</a> at night</li>
-            <li>devoutly logs movies on <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">Letterboxd</a></li>
-            {/* <li>loves shooting film <a href={"https://www.instagram.com/eugeually/"} rel="noreferrer" className="link decoration-2">photos</a></li> */}
-          </ul>
+          <div className="ml-8">
+            <ul>
+              <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2 font-bold text-emerald-600">hobby projects →</a></li>
+              <li>builds <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-1">crazy healthtech at Forward</a> in SF</li>
+              <li>devoutly logs movies on <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-1">Letterboxd</a></li>
+              <li>shoots film photos on <a href={"https://www.instagram.com/eugeually/"} rel="noreferrer" className="link decoration-1">IG</a></li>
+            </ul>
+            <div className="flex flex-wrap space-x-2 mt-4">
+              <a href={`https://github.com/elh`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Github">
+                <Github size={18} strokeWidth={1.7} alt="Github" />
+              </a>
+              <a href={`https://www.linkedin.com/in/elhonline/`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Linkedin">
+                <Linkedin size={18} strokeWidth={1.7} alt="LinkedIn" />
+              </a>
+              <a href={`https://twitter.com/elh_online`} target={iframed ? "_blank": ""} rel="noreferrer" className="link link-hover" aria-label="Twitter">
+                <Twitter size={18} strokeWidth={1.7} alt="Twitter" />
+              </a>
+            </div>
+          </div>
         </Absolute>
 
         {/* <Absolute style={{top: 50, right:20, width:"30%"}}>
