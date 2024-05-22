@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const Header = ({ iframed, onHomePage }) => {
   return (
-    <div className="mt-6 flex flex-wrap justify-between">
+    <div className="mt-12 flex flex-wrap justify-between">
       { onHomePage
         ? <div />
         : <a href="" rel="noreferrer" className="mx-2 text-sm" aria-label="Home">← home</a>
