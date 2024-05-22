@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { Github, Linkedin, Twitter } from 'lucide-react';
 
 import Header from '../components/Header';
@@ -22,25 +22,25 @@ function Absolute({ children, style, className, onMouseEnter, onMouseLeave }) {
   );
 }
 
-function Image({ src, alt, className }) {
-  if (className === undefined) {
-    className = "";
-  }
-  return (
-    <img className={`grayscale hover:grayscale-0 relative transition-transform duration-100 transform hover:scale-[1.02] ${className}`} src={src} alt={alt} />
-  );
-}
+// function Image({ src, alt, className }) {
+//   if (className === undefined) {
+//     className = "";
+//   }
+//   return (
+//     <img className={`grayscale hover:grayscale-0 relative transition-transform duration-100 transform hover:scale-[1.02] ${className}`} src={src} alt={alt} />
+//   );
+// }
 
-function OnPeerHover({ children, className }) {
-  if (className === undefined) {
-    className = "";
-  }
-  return (
-    <div className={`opacity-0 peer-hover:opacity-100 transition-opacity duration-100 ${className}`}>
-      {children}
-    </div>
-  );
-}
+// function OnPeerHover({ children, className }) {
+//   if (className === undefined) {
+//     className = "";
+//   }
+//   return (
+//     <div className={`opacity-0 peer-hover:opacity-100 transition-opacity duration-100 ${className}`}>
+//       {children}
+//     </div>
+//   );
+// }
 
 function Home({ iframed }) {
   // const [letterboxdHovered, setLetterboxdHovered] = useState(false);
@@ -71,7 +71,7 @@ function Home({ iframed }) {
             <li>makes <a href={`https://goforward.com/carepod`} target={iframed ? "_blank": ""} rel="noreferrer" className="link decoration-2">crazy healthtech</a> @ Forward in SF</li>
             <li>hacks on <a href={process.env.PUBLIC_URL+`#/projects`} rel="noreferrer" className="link decoration-2">pet projects</a> at night</li>
             <li>devoutly logs movies on <a href={"https://letterboxd.com/eugeually/"} rel="noreferrer" className="link decoration-2">Letterboxd</a></li>
-            <li>loves shooting film <a href={"https://www.instagram.com/eugeually/"} rel="noreferrer" className="link decoration-2">photos</a></li>
+            {/* <li>loves shooting film <a href={"https://www.instagram.com/eugeually/"} rel="noreferrer" className="link decoration-2">photos</a></li> */}
           </ul>
         </Absolute>
 
